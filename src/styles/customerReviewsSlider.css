@@ -1,7 +1,13 @@
 /* ==========================================================================
-   CUSTOMER REVIEWS SLIDER — SON AGNI SECURITIES
-   Brand Color Theme: Warm Off-White / Sand Canvas, SON AGNI Red Accents,
-   Golden Stars, Warm Cards, Dark Typography & Fluid Carousel.
+   CUSTOMER REVIEWS MARQUEE SLIDER — SON AGNI SECURITIES
+   Seamless continuous auto-rotating conveyor track (right-to-left marquee).
+   Features:
+   - GPU-accelerated continuous linear infinite animation.
+   - Zero-gap, zero-jump loop with duplicate sequence.
+   - Hover and touch pause / resume.
+   - Manual next/previous arrow navigation.
+   - Brand color theme: Warm off-white, SON AGNI red accents, golden stars.
+   - Fully responsive for mobile, tablet, desktop.
    ========================================================================== */
 
 .customer-reviews-section {
@@ -14,7 +20,7 @@
 
 /* Header block */
 .reviews-slider-header {
-  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   text-align: left;
 }
 
@@ -48,29 +54,67 @@
   margin: 0;
 }
 
-/* Slider Viewport & Track */
+/* Slider Viewport with subtle edge gradient masks for professional edge blending */
 .reviews-slider-viewport {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0.75rem 0.25rem 1.5rem 0.25rem;
+  padding: 1rem 0 1.5rem 0;
+  /* Smooth edge fade out at the container perimeters */
+  mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%);
+  cursor: grab;
 }
 
-.reviews-slider-track {
+.reviews-slider-viewport:active {
+  cursor: grabbing;
+}
+
+/* Outer Wrapper for manual arrow nudging / dragging */
+.reviews-marquee-wrapper {
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  width: max-content;
   will-change: transform;
 }
 
-.reviews-slider-slide {
+/* Marquee Track: Infinite smooth right-to-left conveyor */
+.reviews-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: reviewsMarqueeScroll 38s linear infinite;
+  will-change: transform;
+}
+
+/* Pause marquee on hover, keyboard focus, or touch */
+.reviews-slider-viewport:hover .reviews-marquee-track,
+.reviews-slider-viewport:focus-within .reviews-marquee-track,
+.reviews-marquee-track.is-paused {
+  animation-play-state: paused !important;
+}
+
+/* Each identical group containing the review cards */
+.reviews-marquee-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem; /* Matches the gap so group 1 and group 2 seamlessly join with identical spacing */
   flex-shrink: 0;
-  padding: 0 0.75rem;
-  box-sizing: border-box;
+}
+
+/* Infinite Keyframes: translates exactly 25% (one full group width out of 4) then seamlessly loops */
+@keyframes reviewsMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
 }
 
 /* Review Card — SON AGNI Website Warm Theme Spec */
 .review-panel-card {
-  height: 100%;
+  width: 380px;
+  max-width: 85vw;
+  flex-shrink: 0;
   min-height: 290px;
   background: var(--color-surface, #F0EEE5);
   background: linear-gradient(145deg, #FAF8F3 0%, #F0EEE5 100%);
@@ -83,6 +127,7 @@
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
+  user-select: none;
 }
 
 .review-panel-card:hover {
@@ -128,7 +173,7 @@
 
 /* Italic Review Comment */
 .review-panel-comment {
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
   font-style: italic;
   line-height: 1.65;
   color: var(--color-text-primary, #171717);
@@ -179,14 +224,42 @@
   border: 1px solid rgba(193, 18, 31, 0.2);
 }
 
-/* Controls & Navigation Row */
+/* Controls & Status Bar */
 .reviews-slider-footer-bar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-top: 1.75rem;
+  justify-content: space-between;
+  margin-top: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.reviews-marquee-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted, #666666);
+}
+
+.marquee-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary-red, #C1121F);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .reviews-slider-arrows {
@@ -223,12 +296,19 @@
 }
 
 /* Responsive queries */
+@media (max-width: 1024px) {
+  .review-panel-card {
+    width: 340px;
+  }
+}
+
 @media (max-width: 640px) {
   .customer-reviews-section {
     padding: 3rem 0;
   }
   
   .review-panel-card {
+    width: 295px;
     min-height: 260px;
     padding: 1.35rem;
   }
@@ -236,13 +316,18 @@
   .reviews-slider-footer-bar {
     justify-content: center;
   }
+
+  .reviews-marquee-hint {
+    display: none;
+  }
 }
 
 /* Accessibility: Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .reviews-slider-track,
-  .review-panel-card,
-  .reviews-arrow-btn {
+  .reviews-marquee-track {
+    animation: none !important;
+  }
+  .reviews-marquee-wrapper {
     transition: none !important;
   }
 }

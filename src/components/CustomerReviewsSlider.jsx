@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Star, 
   ChevronLeft, 
@@ -13,39 +13,21 @@ import '../styles/customerReviewsSlider.css';
 const CustomerReviewsSlider = () => {
   const [reviews, setReviews] = useState(demoReviews);
   const [isLiveGoogle, setIsLiveGoogle] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [manualOffset, setManualOffset] = useState(0);
 
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const timerRef = useRef(null);
+  const touchCurrentX = useRef(0);
+  const isDragging = useRef(false);
+  const groupRef = useRef(null);
 
-  // Responsive slide card count with partial peek at the edge
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCount(1.15); // 1 card + partial next card peek on mobile
-      } else if (window.innerWidth < 1024) {
-        setVisibleCount(2.2);  // 2 cards + partial next card peek on tablet
-      } else {
-        setVisibleCount(3.25); // ~3 cards + partial next card peek on desktop
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Try checking for genuine Google reviews; fallback to isolated demo reviews
+  // Fetch live reviews from Google API or fallback to isolated demo reviews
   useEffect(() => {
     let isMounted = true;
     const loadReviews = async () => {
       try {
         const liveData = await googleReviewsService.getLiveGoogleReviews();
         if (isMounted && liveData && liveData.reviews && liveData.reviews.length > 0) {
-          // Normalize live reviews
           const formatted = liveData.reviews.map((r) => ({
             id: r.id,
             name: r.authorName,
@@ -72,76 +54,92 @@ const CustomerReviewsSlider = () => {
     return () => { isMounted = false; };
   }, []);
 
-  const totalReviews = reviews.length;
-  const maxIndex = Math.max(0, totalReviews - Math.floor(visibleCount));
-
-  const resetTimer = useCallback(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  }, []);
-
-  const handleNext = useCallback(() => {
-    setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
-
-  const handlePrev = useCallback(() => {
-    setCurrentIndex(prev => (prev <= 0 ? maxIndex : prev - 1));
-  }, [maxIndex]);
-
-  const onManualNext = () => {
-    resetTimer();
-    handleNext();
+  // Calculate card step distance (card width + gap) for manual arrow navigation
+  const getStepDistance = () => {
+    if (window.innerWidth < 640) return 319; // 295px + 24px gap
+    if (window.innerWidth < 1024) return 364; // 340px + 24px gap
+    return 404; // 380px + 24px gap
   };
 
-  const onManualPrev = () => {
-    resetTimer();
-    handlePrev();
+  const handleManualPrev = () => {
+    const step = getStepDistance();
+    setManualOffset(prev => prev + step);
   };
 
-  // 4.5s Continuous Auto-Rotation with pause on hover
-  useEffect(() => {
-    if (isPaused || totalReviews <= visibleCount) {
-      resetTimer();
-      return;
-    }
+  const handleManualNext = () => {
+    const step = getStepDistance();
+    setManualOffset(prev => prev - step);
+  };
 
-    const handleVisibility = () => {
-      setIsPaused(document.hidden);
-    };
-    document.addEventListener('visibilitychange', handleVisibility);
-
-    timerRef.current = setInterval(() => {
-      handleNext();
-    }, 4500);
-
-    return () => {
-      resetTimer();
-      document.removeEventListener('visibilitychange', handleVisibility);
-    };
-  }, [isPaused, totalReviews, visibleCount, handleNext, resetTimer]);
-
-  // Touch Swipe Handlers for mobile
+  // Mobile Touch Gestures
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchCurrentX.current = e.targetTouches[0].clientX;
+    isDragging.current = true;
+    setIsPaused(true);
   };
 
   const handleTouchMove = (e) => {
-    touchEndX.current = e.targetTouches[0].clientX;
+    if (!isDragging.current) return;
+    touchCurrentX.current = e.targetTouches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const diff = touchStartX.current - touchEndX.current;
+    if (!isDragging.current) return;
+    const diff = touchStartX.current - touchCurrentX.current;
     if (diff > 45) {
-      onManualNext();
+      handleManualNext();
     } else if (diff < -45) {
-      onManualPrev();
+      handleManualPrev();
     }
-    touchStartX.current = 0;
-    touchEndX.current = 0;
+    isDragging.current = false;
+    setIsPaused(false);
   };
+
+  const renderCard = (rev, keyPrefix = '') => (
+    <div key={`${keyPrefix}-${rev.id}`} className="review-panel-card">
+      {/* Top: Star Rating & Elegant Quotation Icon */}
+      <div>
+        <div className="review-panel-top">
+          <div className="review-panel-stars" aria-label={`${rev.rating} out of 5 stars`}>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star 
+                key={star} 
+                size={18} 
+                className={star <= rev.rating ? 'review-star-icon' : 'review-star-empty'}
+              />
+            ))}
+          </div>
+          <div className="review-panel-quote-icon" aria-hidden="true">
+            <Quote size={18} />
+          </div>
+        </div>
+
+        {/* Customer Review Comment (Italic Typography) */}
+        <p className="review-panel-comment">
+          "{rev.comment}"
+        </p>
+      </div>
+
+      {/* Thin Divider & Author Details */}
+      <div>
+        <div className="review-panel-divider" aria-hidden="true" />
+        <div className="review-panel-bottom">
+          <div>
+            <h4 className="review-author-name">{rev.name}</h4>
+            {rev.company && (
+              <p className="review-author-company">{rev.company}</p>
+            )}
+          </div>
+          {rev.isDemo && (
+            <span className="review-demo-tag" title="Representative Demo Review">
+              Preview
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section 
@@ -164,89 +162,68 @@ const CustomerReviewsSlider = () => {
           </p>
         </div>
 
-        {/* Continuous Slider Viewport */}
+        {/* Continuous Seamless Auto-Rotating Marquee Viewport */}
         <div 
           className="reviews-slider-viewport"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          title="Reviews slide continuously. Hover or touch to pause."
         >
           <div 
-            className="reviews-slider-track"
+            className="reviews-marquee-wrapper"
             style={{
-              transform: `translateX(-${(currentIndex * 100) / totalReviews}%)`,
-              width: `${(totalReviews / visibleCount) * 100}%`
+              transform: `translateX(${manualOffset}px)`,
+              transition: isDragging.current ? 'none' : 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)'
             }}
           >
-            {reviews.map((rev) => (
-              <div 
-                key={rev.id} 
-                className="reviews-slider-slide"
-                style={{ width: `${100 / totalReviews}%` }}
-              >
-                <div className="review-panel-card">
-                  {/* Top: Star Rating & Elegant Quotation Icon */}
-                  <div>
-                    <div className="review-panel-top">
-                      <div className="review-panel-stars" aria-label={`${rev.rating} out of 5 stars`}>
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star 
-                            key={star} 
-                            size={18} 
-                            className={star <= rev.rating ? 'review-star-icon' : 'review-star-empty'}
-                          />
-                        ))}
-                      </div>
-                      <div className="review-panel-quote-icon" aria-hidden="true">
-                        <Quote size={18} />
-                      </div>
-                    </div>
-
-                    {/* Customer Review Comment (Italic Typography) */}
-                    <p className="review-panel-comment">
-                      "{rev.comment}"
-                    </p>
-                  </div>
-
-                  {/* Thin Divider & Author Details */}
-                  <div>
-                    <div className="review-panel-divider" aria-hidden="true" />
-                    <div className="review-panel-bottom">
-                      <div>
-                        <h4 className="review-author-name">{rev.name}</h4>
-                        {rev.company && (
-                          <p className="review-author-company">{rev.company}</p>
-                        )}
-                      </div>
-                      {rev.isDemo && (
-                        <span className="review-demo-tag" title="Representative Demo Review">
-                          Preview
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
+            <div className={`reviews-marquee-track ${isPaused ? 'is-paused' : ''}`}>
+              {/* Primary Sequence */}
+              <div className="reviews-marquee-group" ref={groupRef}>
+                {reviews.map((rev) => renderCard(rev, 'p1'))}
               </div>
-            ))}
+
+              {/* Seamless Duplicate Sequence 1 */}
+              <div className="reviews-marquee-group" aria-hidden="true">
+                {reviews.map((rev) => renderCard(rev, 'd1'))}
+              </div>
+
+              {/* Seamless Duplicate Sequence 2 (Guarantees infinite continuity on ultra-wide screens) */}
+              <div className="reviews-marquee-group" aria-hidden="true">
+                {reviews.map((rev) => renderCard(rev, 'd2'))}
+              </div>
+
+              {/* Seamless Duplicate Sequence 3 */}
+              <div className="reviews-marquee-group" aria-hidden="true">
+                {reviews.map((rev) => renderCard(rev, 'd3'))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Carousel Navigation Arrows */}
+        {/* Controls & Navigation Row */}
         <div className="reviews-slider-footer-bar">
+          <div className="reviews-marquee-hint">
+            <span className="marquee-pulse-dot" />
+            <span>Continuous live client feedback &bull; Hover to pause</span>
+          </div>
+
           <div className="reviews-slider-arrows">
             <button
               type="button"
               className="reviews-arrow-btn"
-              onClick={onManualPrev}
+              onClick={handleManualPrev}
               aria-label="Previous Review"
+              title="Previous Review"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               type="button"
               className="reviews-arrow-btn"
-              onClick={onManualNext}
+              onClick={handleManualNext}
               aria-label="Next Review"
+              title="Next Review"
             >
               <ChevronRight size={20} />
             </button>
@@ -258,4 +235,3 @@ const CustomerReviewsSlider = () => {
 };
 
 export default CustomerReviewsSlider;
-
