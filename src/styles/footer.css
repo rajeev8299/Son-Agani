@@ -1,0 +1,381 @@
+/* ==========================================================================
+   FOOTER STYLING – PREMIUM LIGHT THEME (SON AGNI SECURITIES)
+   Off-White & Pure White Architecture with Strong Red Brand Detailing
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+}
+
+.footer-top {
+  padding: 4.5rem 0 3.25rem 0;
+  background-color: var(--color-background);
+}
+
+/* ==========================================================================
+   1. Symmetrical 4-Column Desktop Grid
+   ========================================================================== */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .footer-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   2. Consistent Headings Across All Columns
+   ========================================================================== */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.35rem 0;
+  padding-bottom: 0.65rem;
+  position: relative;
+  line-height: 1.2;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 2.5px;
+  background-color: var(--color-primary-red);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   3. Column 1: Company Information
+   ========================================================================== */
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  margin-bottom: 1.1rem;
+}
+
+.footer-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+.footer-company-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.35rem;
+}
+
+.footer-entity-line {
+  margin: 0;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-detail-label {
+  color: var(--color-text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.footer-detail-value {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.footer-meta-line {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+}
+
+.footer-meta-tag {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-pill);
+  background-color: #F0EEE5;
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(35, 30, 20, 0.05);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.social-icon-btn:hover {
+  transform: scale(1.08);
+  border-color: rgba(193, 18, 31, 0.3);
+  background-color: #F5F3EB;
+  box-shadow: 0 6px 16px rgba(35, 30, 20, 0.12);
+}
+
+.social-icon-btn:active {
+  transform: scale(0.96);
+}
+
+.social-icon-btn.whatsapp-social:hover {
+  border-color: rgba(37, 211, 102, 0.4);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.2);
+}
+
+.social-icon-btn.phone-social:hover {
+  border-color: rgba(193, 18, 31, 0.4);
+  box-shadow: 0 6px 16px rgba(193, 18, 31, 0.2);
+}
+
+.social-icon-btn.email-social:hover {
+  border-color: rgba(23, 23, 23, 0.4);
+  box-shadow: 0 6px 16px rgba(23, 23, 23, 0.18);
+}
+
+/* ==========================================================================
+   4. Column 2: Quick Navigation (Dual Grid)
+   ========================================================================== */
+.footer-nav-dual-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 0.85rem;
+}
+
+.footer-nav-dual-grid li {
+  min-width: 0;
+}
+
+.footer-nav-dual-grid a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1.35;
+}
+
+.footer-nav-dual-grid a svg {
+  color: var(--color-primary-red);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.footer-nav-dual-grid a:hover {
+  color: var(--color-primary-red);
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   5. Column 3: Our Core Services
+   ========================================================================== */
+.footer-services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-services-list a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  line-height: 1.4;
+}
+
+.footer-services-list a svg {
+  color: var(--color-primary-red);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.footer-services-list a:hover {
+  color: var(--color-primary-red);
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   6. Column 4: Registered Office & Contact
+   ========================================================================== */
+.footer-office-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.875rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  line-height: 1.45;
+}
+
+.footer-contact-item svg {
+  color: var(--color-primary-red);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.footer-address-text {
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.footer-phone-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-contact-link {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact-link:hover {
+  color: var(--color-primary-red);
+  text-decoration: underline;
+}
+
+.footer-break-all {
+  word-break: break-all;
+}
+
+.footer-quote-action {
+  margin-top: 0.65rem;
+}
+
+.footer-quote-btn {
+  width: 100%;
+  font-size: 0.825rem;
+  padding: 0.65rem 1rem;
+  text-align: center;
+  justify-content: center;
+  border-color: var(--color-primary-red);
+  color: var(--color-primary-red);
+  background-color: var(--color-surface);
+}
+
+.footer-quote-btn:hover {
+  background-color: var(--color-primary-red);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(193, 18, 31, 0.25);
+}
+
+/* ==========================================================================
+   7. Bottom Legal / Copyright Bar
+   ========================================================================== */
+.footer-bottom {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 1.35rem 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-inner {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.footer-copyright-text {
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.footer-bottom-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.footer-portal-badge {
+  color: var(--color-primary-red);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

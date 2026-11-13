@@ -1,0 +1,80 @@
+:root {
+  /* Brand Primary Colors (Consistent Red Theme) */
+  --color-primary: #C1121F;
+  --color-primary-red: #C1121F;
+  --color-deep-red: #980F19;
+  --color-bright-red: #E61E2E;
+  
+  /* Exact User Color Palette: Premium Warm Dark Off-White */
+  --color-background: #EAE7DC;            /* Main Background: #EAE7DC */
+  --color-background-secondary: #E5E2D7;  /* Secondary Background: #E5E2D7 */
+  --color-secondary-bg: #E5E2D7;          /* Secondary Background Alias */
+  --color-surface: #F0EEE5;               /* Card Background: #F0EEE5 */
+  --color-card: #F0EEE5;                  /* Card Background Alias */
+  --color-surface-elevated: #F5F3EB;      /* Elevated Surface: #F5F3EB */
+  --color-surface-subtle: #E5E2D7;        /* Secondary contrast */
+  --color-surface-alt: #E5E2D7;           /* Alternating section background */
+  
+  /* High-Contrast Centralized Typography */
+  --color-text-primary: #171717;          /* Primary Text: #171717 */
+  --color-text-secondary: #444444;        /* Secondary Text: #444444 */
+  --color-text-muted: #666666;            /* Muted Text: #666666 */
+  --color-text-inverse: #FFFFFF;          /* Text on red buttons & dark overlays */
+
+  /* Borders & Dividers */
+  --color-border: #D5D0C4;                /* Border: #D5D0C4 */
+  --color-border-subtle: #DDD8CD;
+  --color-border-dark: #C9C4B7;
+
+  /* Accent Tints */
+  --color-accent: #C1121F;
+  --color-accent-light-red: #F8E8E8;      /* Light Red Surface: #F8E8E8 */
+  --color-accent-red-border: rgba(193, 18, 31, 0.25);
+
+  /* Legacy Mapping for Seamless Component Compatibility */
+  --color-primary-black: var(--color-background);         /* #EAE7DC */
+  --color-secondary-black: var(--color-surface);          /* #F0EEE5 */
+  --color-card-black: var(--color-surface);               /* #F0EEE5 */
+  --color-white: #171717;                                 /* Headings/prominent text become dark */
+  --color-dark-text: #171717;
+  --color-secondary-text: #444444;
+  --color-muted-text: #666666;
+  --color-light-bg: #EAE7DC;
+  --color-light-card: #F0EEE5;
+
+  /* States */
+  --color-success: #059669;
+  --color-error: #DC2626;
+  --color-warning: #D97706;
+
+  /* Typography */
+  --font-heading: 'Outfit', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Professional Fluid Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Soft Warm Off-White Light Shadows */
+  --shadow-sm: 0 1px 3px rgba(35, 30, 20, 0.06), 0 1px 2px rgba(35, 30, 20, 0.04);
+  --shadow-md: 0 4px 12px rgba(35, 30, 20, 0.07), 0 1px 3px rgba(35, 30, 20, 0.04);
+  --shadow-lg: 0 12px 28px rgba(35, 30, 20, 0.09), 0 2px 6px rgba(35, 30, 20, 0.05);
+  --shadow-xl: 0 20px 40px rgba(35, 30, 20, 0.11);
+  --shadow-red: 0 8px 24px rgba(193, 18, 31, 0.25);
+
+  /* Rounded UI Design System Hierarchy */
+  --radius-xs: 8px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-card: 22px;
+  --radius-lg: 28px;
+  --radius-xl: 32px;
+  --radius-pill: 50px;
+  --radius-full: 9999px;
+
+  /* Layout - Full-width wide modern corporate grid */
+  --container-max-width: 1680px;
+  --container-fluid-padding: clamp(16px, 4vw, 64px);
+  --header-height: 92px;
+}

@@ -1,0 +1,230 @@
+/* Responsive Utilities & Specific Breakpoint Adjustments */
+
+/* Grid Helpers */
+.grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Flex utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Small Screens (320px - 480px) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 2.2rem;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .cta-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn-group .btn {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .form-card {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .form-card {
+    padding: 1rem 0.75rem !important;
+  }
+}
+
+/* Responsive Page Layout Systems */
+.grid-contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .grid-contact-layout {
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 3.5rem;
+  }
+}
+
+.grid-quote-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .grid-quote-layout {
+    grid-template-columns: 2fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.grid-service-details-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .grid-service-details-layout {
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Industry Detail Card */
+.industry-detail-card {
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .industry-detail-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.industry-visual {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  height: 280px;
+  position: relative;
+  background-color: var(--color-surface);
+}
+
+.industry-detail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform var(--transition-slow);
+}
+
+.industry-detail-card:hover .industry-detail-img {
+  transform: scale(1.05);
+}
+
+.industry-visual[data-industry="manufacturing-factories"] .industry-detail-img {
+  object-position: 70% 20%;
+}
+
+.industry-visual[data-industry="residential-complexes"] .industry-detail-img {
+  object-position: 68% 22%;
+}
+
+.industry-visual[data-industry="educational-institutions"] .industry-detail-img {
+  object-position: 38% 18%;
+}
+
+.industry-visual[data-industry="retail-shopping-malls"] .industry-detail-img {
+  object-position: 68% 18%;
+}
+
+@media (min-width: 640px) {
+  .industry-visual {
+    height: 320px;
+  }
+}
+
+/* High DPI / Touch targets */
+button, a {
+  min-height: 44px;
+}
+.nav-link, .dropdown-link {
+  min-height: auto;
+}
+
