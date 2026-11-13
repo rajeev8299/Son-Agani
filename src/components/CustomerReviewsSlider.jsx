@@ -147,6 +147,8 @@ const CustomerReviewsSlider = () => {
       aria-label="Client Reviews and Ratings"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
     >
       <div className="container">
         {/* Section Header */}

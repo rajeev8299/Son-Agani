@@ -365,7 +365,7 @@ const HomeGoogleReviews = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-empty-review"
-                style={{ background: '#FFFFFF', color: '#171717', borderColor: '#D1D5DB' }}
+                style={{ background: '#EAE7DC', color: '#171717', borderColor: '#D1D5DB' }}
               >
                 <span>View Google Profile</span>
                 <ExternalLink size={14} />
