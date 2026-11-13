@@ -231,23 +231,8 @@ const CustomerReviewsSlider = () => {
           </div>
         </div>
 
-        {/* Carousel Controls & Dot Indicators */}
+        {/* Carousel Navigation Arrows */}
         <div className="reviews-slider-footer-bar">
-          <div className="reviews-slider-indicators">
-            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                className={`reviews-dot ${currentIndex === idx ? 'active' : ''}`}
-                onClick={() => {
-                  resetTimer();
-                  setCurrentIndex(idx);
-                }}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-
           <div className="reviews-slider-arrows">
             <button
               type="button"
@@ -273,3 +258,4 @@ const CustomerReviewsSlider = () => {
 };
 
 export default CustomerReviewsSlider;
+
