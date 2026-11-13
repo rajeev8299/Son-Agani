@@ -21,15 +21,15 @@ const CustomerReviewsSlider = () => {
   const touchEndX = useRef(0);
   const timerRef = useRef(null);
 
-  // Responsive slide card count
+  // Responsive slide card count with partial peek at the edge
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setVisibleCount(1);
+        setVisibleCount(1.15); // 1 card + partial next card peek on mobile
       } else if (window.innerWidth < 1024) {
-        setVisibleCount(2);
+        setVisibleCount(2.2);  // 2 cards + partial next card peek on tablet
       } else {
-        setVisibleCount(3);
+        setVisibleCount(3.25); // ~3 cards + partial next card peek on desktop
       }
     };
 
@@ -73,7 +73,7 @@ const CustomerReviewsSlider = () => {
   }, []);
 
   const totalReviews = reviews.length;
-  const maxIndex = Math.max(0, totalReviews - visibleCount);
+  const maxIndex = Math.max(0, totalReviews - Math.floor(visibleCount));
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) {
@@ -174,7 +174,7 @@ const CustomerReviewsSlider = () => {
           <div 
             className="reviews-slider-track"
             style={{
-              transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+              transform: `translateX(-${(currentIndex * 100) / totalReviews}%)`,
               width: `${(totalReviews / visibleCount) * 100}%`
             }}
           >

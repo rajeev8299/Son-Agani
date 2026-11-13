@@ -238,3 +238,13 @@
   }
 }
 
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reviews-slider-track,
+  .review-panel-card,
+  .reviews-arrow-btn {
+    transition: none !important;
+  }
+}
+
+
