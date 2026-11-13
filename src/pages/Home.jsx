@@ -60,79 +60,82 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* SECTION 1: CINEMATIC HERO */}
-      <section className="hero-section">
-        {/* Subtle Architectural Ambient Background */}
-        <div className="hero-split-backdrop" aria-hidden="true">
-          <div className="hero-ambient-grid" />
-          <div className="hero-ambient-glow" />
+      {/* SECTION 1: FULL-WIDTH CINEMATIC VIDEO HERO */}
+      <section className="hero-cinematic-section">
+        {/* Full-width Video Background */}
+        <div className="hero-video-bg-wrap" aria-hidden="true">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="hero-cinematic-video"
+            poster="/images/hero-bouncer-indian.jpg"
+          >
+            <source
+              src="https://res.cloudinary.com/wsligng6/video/upload/v1793184213/Untitled_design.mp4"
+              type="video/mp4"
+            />
+          </video>
+          {/* Directional Cinematic Scrim for Text Readability */}
+          <div className="hero-cinematic-scrim" />
+          {/* Subtle Bottom Ambient Fade into Page Content */}
+          <div className="hero-cinematic-bottom-fade" />
         </div>
 
-        <div className="container hero-container">
-          <div className="hero-split-grid">
-            {/* LEFT COLUMN: 52% Content */}
-            <div className="hero-content-col">
-              <div className="badge-tag">
-                <MapPin size={15} /> {companyConfig.locationBadge}
-              </div>
-              
-              <h1 className="hero-headline">
-                YOUR SAFETY. <br />
-                <span>OUR RESPONSIBILITY.</span>
-              </h1>
-
-              <p className="hero-subheadline">
-                Professional Security and Manpower Solutions for Businesses, Warehouses and Construction Sites.
-              </p>
-
-              <p className="hero-subtext">
-                SON AGNI SECURITIES delivers security-focused services designed to support premises protection, access management, asset safety and operational security coordination.
-              </p>
-
-              <div className="hero-cta-group">
-                <Link to="/get-a-quote" className="btn btn-primary btn-lg">
-                  <span>GET A FREE QUOTE</span>
-                  <ArrowRight size={18} />
-                </Link>
-                <Link to="/services" className="btn btn-secondary btn-lg">
-                  <span>EXPLORE OUR SERVICES</span>
-                </Link>
-              </div>
-
-              <div className="hero-quick-features">
-                <div className="hero-feature-pill">
-                  <CheckCircle2 size={18} /> Security-Focused Service Approach
-                </div>
-                <div className="hero-feature-pill">
-                  <CheckCircle2 size={18} /> Warehouse & Site Security
-                </div>
-                <div className="hero-feature-pill">
-                  <CheckCircle2 size={18} /> Structured Access Management
-                </div>
-                <div className="hero-feature-pill">
-                  <CheckCircle2 size={18} /> Security Shift Coordination
-                </div>
-              </div>
+        {/* Content Container */}
+        <div className="container hero-cinematic-container">
+          <div className="hero-cinematic-content">
+            {/* Small Eyebrow Label */}
+            <div className="hero-cinematic-eyebrow">
+              <span className="hero-eyebrow-pulse" aria-hidden="true" />
+              <span>PROFESSIONAL SECURITY & MANPOWER SOLUTIONS</span>
             </div>
 
-            {/* RIGHT COLUMN: 48% Video Showcase & Floating 24x7 Badge */}
-            <div className="hero-media-col">
-              <div className="hero-video-frame">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="hero-split-video"
-                  poster="/images/hero-bouncer-indian.jpg"
-                >
-                  <source
-                    src="https://res.cloudinary.com/wsligng6/video/upload/v1793184213/Untitled_design.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                {/* Subtle Cinematic Vignette / Glass Polish */}
-                <div className="hero-video-glass-overlay" aria-hidden="true" />
+            {/* Main Heading & Second Heading Line */}
+            <h1 className="hero-cinematic-headline">
+              <span className="hero-headline-accent">PROTECTING</span> WHAT MATTERS.
+              <span className="hero-headline-sub">EVERY MOMENT.</span>
+            </h1>
+
+            {/* Supporting Heading */}
+            <h2 className="hero-cinematic-support-heading">
+              Reliable Security. Responsible Service. Professional People.
+            </h2>
+
+            {/* Description */}
+            <p className="hero-cinematic-description">
+              SON AGNI SECURITIES delivers dependable security solutions for businesses, warehouses and construction sites. From premises protection and access management to security supervision and operational coordination, we help safeguard your people, property and daily operations.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="hero-cinematic-cta-group">
+              <Link to="/get-a-quote" className="btn btn-hero-primary btn-lg">
+                <span>REQUEST A SECURITY QUOTE</span>
+                <ArrowRight size={18} />
+              </Link>
+              <Link to="/services" className="btn btn-hero-secondary btn-lg">
+                <span>EXPLORE OUR SERVICES</span>
+              </Link>
+            </div>
+
+            {/* Trust Highlights */}
+            <div className="hero-cinematic-highlights">
+              <div className="hero-highlight-item">
+                <CheckCircle2 size={16} />
+                <span>SITE & PREMISES SECURITY</span>
+              </div>
+              <div className="hero-highlight-item">
+                <CheckCircle2 size={16} />
+                <span>WAREHOUSE & CONSTRUCTION SECURITY</span>
+              </div>
+              <div className="hero-highlight-item">
+                <CheckCircle2 size={16} />
+                <span>ACCESS & VISITOR MANAGEMENT</span>
+              </div>
+              <div className="hero-highlight-item">
+                <CheckCircle2 size={16} />
+                <span>SHIFT & SECURITY COORDINATION</span>
               </div>
             </div>
           </div>
