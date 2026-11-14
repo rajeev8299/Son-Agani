@@ -1,3 +1,4 @@
+import { assetPath } from '../utils/assetPath';
 // Central data repository for SON AGNI SECURITIES
 export const companyInfo = {
   name: "SON AGNI SECURITIES",
@@ -23,7 +24,7 @@ export const securityServices = [
     shortDesc: "Access control, executive floor concierge, visitor monitoring, and corporate asset protection.",
     fullDesc: "Our Corporate Security division delivers disciplined, discreet, and polished front-line protection for high-value corporate offices, MNC headquarters, and business parks. Personnel undergo rigorous hospitality-security cross-training ensuring seamless access management, visitor logging, badge issuance, and proactive conflict deterrence.",
     icon: "Building2",
-    image: "/images/bouncer-corporate.jpg",
+    image: assetPath('images/bouncer-corporate.jpg'),
     benefits: [
       "Strict multi-tier biometric and badge access governance",
       "Executive floor protection and confidential meeting security",
@@ -45,7 +46,7 @@ export const securityServices = [
     shortDesc: "Heavy manufacturing, logistics yards, gate weighbridge controls, and perimeter surveillance.",
     fullDesc: "Industrial manufacturing plants and processing units require uncompromising vigilance. We deploy robustly trained industrial security guards equipped with modern gate-management procedures, material in/out audit systems, weighbridge monitoring, and anti-pilferage protocol execution.",
     icon: "Factory",
-    image: "/images/industry-manufacturing.jpg",
+    image: assetPath('images/industry-manufacturing.jpg'),
     benefits: [
       "Prevention of material theft, unauthorized inventory diversion, and vandalism",
       "Heavy vehicle movement control and weighbridge verification",
@@ -67,7 +68,7 @@ export const securityServices = [
     shortDesc: "Gated communities, luxury villas, apartment complexes, and neighborhood patrol.",
     fullDesc: "Creating a secure, serene living environment for families, high-net-worth communities, and luxury residential complexes. Our guards are courteous yet firm, adept at digital visitor management apps, vehicle barrier controls, and child safety surveillance across communal zones.",
     icon: "Home",
-    image: "/images/industry-residential.jpg",
+    image: assetPath('images/industry-residential.jpg'),
     benefits: [
       "Strict visitor, vendor, and domestic staff validation",
       "24/7 continuous roving patrols in quiet electric vehicles or foot beats",
@@ -89,7 +90,7 @@ export const securityServices = [
     shortDesc: "Crowd control, VIP barricades, ingress/egress safety, and ticket validation.",
     fullDesc: "From massive stadium concerts and global business summits to high-profile celebrity weddings, our event security wing plans operational flow with military precision. We engineer pedestrian bottlenecks, coordinate evacuation routes, and implement discreet crowd pacification tactics.",
     icon: "Users",
-    image: "/images/bouncer-team.jpg",
+    image: assetPath('images/bouncer-team.jpg'),
     benefits: [
       "Effective crowd dispersion and bottleneck prevention",
       "Anti-stampede architectural barrier configuration",
@@ -111,7 +112,7 @@ export const securityServices = [
     shortDesc: "Close protection officers (CPO) with tactical defensive training and sharp threat analysis.",
     fullDesc: "Our Close Protection Officers (CPOs) provide elite personal protection for high-risk individuals, diplomats, corporate leaders, and visiting dignitaries. Trained in defensive driving, evasive maneuvering, situational de-escalation, and discreet threat mitigation.",
     icon: "ShieldAlert",
-    image: "/images/bouncer-vip.jpg",
+    image: assetPath('images/bouncer-vip.jpg'),
     benefits: [
       "Tailored protection circles (Close, Inner, and Outer Rings)",
       "Unobtrusive presence matching client lifestyle and dress code",
@@ -133,7 +134,7 @@ export const securityServices = [
     shortDesc: "Armed and unarmed convoy motorcades, safe houses, and high-visibility deterrence.",
     fullDesc: "Designed for public figures and VIP delegations navigating high-density environments. Our VIP protection teams deploy coordinated multi-vehicle escorts, advance scout cars, and static perimeter defense to neutralize potential threats before they materialize.",
     icon: "Award",
-    image: "/images/hero-bouncer.jpg",
+    image: assetPath('images/hero-bouncer.jpg'),
     benefits: [
       "Synchronized motorcade security with trained convoy drivers",
       "Static safe-zone establishment at hotels, airports, and private lounges",
@@ -155,7 +156,7 @@ export const securityServices = [
     shortDesc: "Assertive, disciplined bouncers for premium nightlife venues, lounges, and private parties.",
     fullDesc: "Our male and female bouncers represent physical authority combined with psychological calm. Specializing in high-energy nightlife venues, upscale lounges, private clubs, and invite-only celebrations, they maintain decorum, manage guest lists, and defuse rowdy behavior.",
     icon: "UserCheck",
-    image: "/images/bouncer-nightlife.jpg",
+    image: assetPath('images/bouncer-nightlife.jpg'),
     benefits: [
       "Imposing physical deterrent reducing physical altercation risks",
       "Trained in verbal de-escalation and calm dispute separation",
@@ -177,7 +178,7 @@ export const securityServices = [
     shortDesc: "Sensitive, empathetic protection for ICU perimeters, emergency triage, and medical staff.",
     fullDesc: "Healthcare security demands high empathy alongside rigorous authority. We station specially conditioned security guards at casualty/ER zones, infant wards, and doctor consultation perimeters to shield medical personnel against emotional flashpoints and unauthorized intrusion.",
     icon: "Activity",
-    image: "/images/bouncer-access.jpg",
+    image: assetPath('images/bouncer-access.jpg'),
     benefits: [
       "Instant buffering between distressed attendants and medical practitioners",
       "Infant protection and anti-abduction ward lockups",
@@ -199,7 +200,7 @@ export const securityServices = [
     shortDesc: "Child-safe protocols, school bus boarding verification, and student zone monitoring.",
     fullDesc: "Protecting educational ecosystems requires background-screened, vigilant, and compassionate guards. We secure kindergarten gates, university campuses, and boarding institutions with strict child pickup rules, anti-bullying perimeter checks, and visitor escrow procedures.",
     icon: "GraduationCap",
-    image: "/images/industry-education.jpg",
+    image: assetPath('images/industry-education.jpg'),
     benefits: [
       "Child pickup verification cards (parent/guardian identity checks)",
       "Drug-free and tobacco-free radius enforcement outside campus gates",
@@ -221,7 +222,7 @@ export const securityServices = [
     shortDesc: "Discreet five-star lobby presence, luggage screening, and guest privacy preservation.",
     fullDesc: "Blending luxury guest service with covert protection. Our hospitality security officers are groomed to 5-star grooming standards, monitoring baggage scanners, hotel corridors, banquet exits, and basement valets without alarming international tourists or corporate guests.",
     icon: "Sparkles",
-    image: "/images/bouncer-nightlife.jpg",
+    image: assetPath('images/bouncer-nightlife.jpg'),
     benefits: [
       "Guest privacy and anti-paparazzi protection on VIP floors",
       "Under-vehicle surveillance mirrors (UVMS) and luggage X-ray scans",
@@ -243,7 +244,7 @@ export const securityServices = [
     shortDesc: "Crowd circulation, lost children assistance, shoplifting deterrence, and parking safety.",
     fullDesc: "High footfall retail environments require sharp situational awareness. Our mall security units specialize in anti-shoplifting visual observation, escalator safety supervision, lost child reunion protocols, and orderly multi-level underground parking management.",
     icon: "ShoppingBag",
-    image: "/images/industry-retail.jpg",
+    image: assetPath('images/industry-retail.jpg'),
     benefits: [
       "Active visual deterrence against retail theft and organized shoplifting",
       "Escalator and atrium fall-prevention observation teams",
@@ -265,7 +266,7 @@ export const securityServices = [
     shortDesc: "Vault perimeter defense, armed cash escort guards, ATM booth vigilance, and queue discipline.",
     fullDesc: "Financial hubs and banking branches require maximum deterrence and rapid response readiness. We deploy seasoned armed and unarmed security guards trained in vault access verification, cash-in-transit (CIT) perimeter defense, and customer lobby security.",
     icon: "Lock",
-    image: "/images/bouncer-patrol.jpg",
+    image: assetPath('images/bouncer-patrol.jpg'),
     benefits: [
       "Strict vault entrance protocol and dual-authorization verification",
       "Continuous observation of ATM vestibules preventing card-skimming hardware tampering",
@@ -287,7 +288,7 @@ export const securityServices = [
     shortDesc: "Consignment seal tracking, truck driver escorting, loading dock surveillance, and yard perimeter.",
     fullDesc: "Sprawling fulfillment hubs, freight terminals, and supply depots require comprehensive perimeter protection and tight logistical auditing. We integrate gate passes, cargo manifest verification, seal audits, and round-the-clock yard rover patrols.",
     icon: "Truck",
-    image: "/images/bouncer-warehouse.jpg",
+    image: assetPath('images/bouncer-warehouse.jpg'),
     benefits: [
       "Elimination of internal inventory shrinkage and dockside theft",
       "Rigid outward gate pass verification against digital barcode manifests",
@@ -309,7 +310,7 @@ export const securityServices = [
     shortDesc: "24/7 remote video telemetry, AI threat analytics, and rapid dispatch coordination.",
     fullDesc: "State-of-the-art Command & Control Room operations manned by certified surveillance technicians. We monitor hundreds of camera feeds simultaneously, using video analytics for perimeter breaches, unattended object detection, fire flareups, and dispatching on-ground patrol officers within seconds.",
     icon: "Video",
-    image: "/images/bouncer-shift.jpg",
+    image: assetPath('images/bouncer-shift.jpg'),
     benefits: [
       "Continuous live stream tracking without operator fatigue gaps",
       "Immediate guard dispatch via VHF tactical radio network",
@@ -331,7 +332,7 @@ export const securityServices = [
     shortDesc: "Certified fire marshals, hydrant upkeep, smoke response, and emergency evacuation drills.",
     fullDesc: "Industrial manufacturing plants, corporate towers, and public venues require vigilant fire wardens who can act before first responders arrive. Our guards are certified in portable extinguisher operation, hydrant monitoring, smoke exhaust checks, and crowd evacuation.",
     icon: "Flame",
-    image: "/images/bouncer-construction.jpg",
+    image: assetPath('images/bouncer-construction.jpg'),
     benefits: [
       "Immediate initial suppression of localized class A, B, and C fires",
       "Keeping emergency corridors, fire doors, and escape stairs unblocked",
@@ -353,7 +354,7 @@ export const securityServices = [
     shortDesc: "Digital badge check-ins, boom barrier automation, courier escrow, and vehicle frisks.",
     fullDesc: "The main perimeter gate is the primary line of defense. Our gate security personnel enforce digital visitor management, OTP validation, RFID vehicle tags, contract worker frisking, and delivery parcel scanning to ensure absolute site safety.",
     icon: "DoorClosed",
-    image: "/images/bouncer-access.jpg",
+    image: assetPath('images/bouncer-access.jpg'),
     benefits: [
       "Zero unverified visitors through pre-authorization mobile apps",
       "Under-vehicle mirror inspection preventing prohibited item entry",
@@ -374,7 +375,7 @@ export const industriesList = [
   {
     id: "corporate-offices",
     name: "Corporate Offices & IT Parks",
-    image: "/images/bouncer-corporate.jpg",
+    image: assetPath('images/bouncer-corporate.jpg'),
     desc: "Comprehensive perimeter defense, turnstile access systems, confidentiality controls, and visitor tracking for high-occupancy corporate hubs.",
     challenges: ["High volume daily employee traffic", "Protection of intellectual property", "Strict VIP client protocol"],
     solutions: "Smart turnstile integration, executive floor security, and 24/7 CCTV surveillance."
@@ -382,7 +383,7 @@ export const industriesList = [
   {
     id: "manufacturing-factories",
     name: "Manufacturing Plants & Factories",
-    image: "/images/industry-manufacturing.jpg",
+    image: assetPath('images/industry-manufacturing.jpg'),
     desc: "Rigid gate management, scrap theft deterrence, shift change discipline, and industrial safety compliance across massive industrial spaces.",
     challenges: ["Heavy equipment pilferage", "Labor union friction", "Hazardous materials"],
     solutions: "Gate weighbridge verification, random employee frisking, and round-the-clock perimeter patrol."
@@ -390,7 +391,7 @@ export const industriesList = [
   {
     id: "residential-complexes",
     name: "Residential Townships & Societies",
-    image: "/images/industry-residential.jpg",
+    image: assetPath('images/industry-residential.jpg'),
     desc: "Safe haven security with digital visitor gate apps, night perimeter patrols, and friendly assistance for families and senior residents.",
     challenges: ["Unchecked vendor delivery access", "Child safety near roads", "Basement vehicle safety"],
     solutions: "Resident app sync, visitor pre-approvals, and speed bump watchdogs."
@@ -398,7 +399,7 @@ export const industriesList = [
   {
     id: "hospitals-healthcare",
     name: "Hospitals & Healthcare Facilities",
-    image: "/images/bouncer-access.jpg",
+    image: assetPath('images/bouncer-access.jpg'),
     desc: "Protective buffers for doctors, casualty unit crowd containment, emergency triage escorting, and patient privacy management.",
     challenges: ["Emotionally charged emergencies", "Unrestricted entry in critical wards", "Pharmacy theft"],
     solutions: "Dedicated ER marshals, ICU biometric doors, and strict visitor badge policy."
@@ -406,7 +407,7 @@ export const industriesList = [
   {
     id: "educational-institutions",
     name: "Schools, Colleges & Universities",
-    image: "/images/industry-education.jpg",
+    image: assetPath('images/industry-education.jpg'),
     desc: "Vetted guards guarding campus perimeter boundaries, school bus drop-off points, and anti-bullying surveillance.",
     challenges: ["Student safety and anti-bullying", "Unauthorized trespassers", "Heavy dispersal rush"],
     solutions: "Color-coded parent pickup badges, perimeter wall laser sensors, and disciplined gatekeepers."
@@ -414,7 +415,7 @@ export const industriesList = [
   {
     id: "retail-shopping-malls",
     name: "Shopping Malls & Retail Hubs",
-    image: "/images/industry-retail.jpg",
+    image: assetPath('images/industry-retail.jpg'),
     desc: "Loss prevention officers, escalator safety marshals, metal detector gates, and rapid assistance for lost children.",
     challenges: ["Active shoplifting syndicates", "Massive weekend crowds", "Parking disputes"],
     solutions: "Undercover store watchers, security booths on every level, and structured parking coordination."
@@ -422,7 +423,7 @@ export const industriesList = [
   {
     id: "hospitality-hotels",
     name: "Hotels & Luxury Resorts",
-    image: "/images/bouncer-nightlife.jpg",
+    image: assetPath('images/bouncer-nightlife.jpg'),
     desc: "Discreet five-star protection, luggage scanners, under-chassis vehicle mirrors, and VIP guest confidentiality.",
     challenges: ["Maintaining warm hospitality while remaining alert", "Celebrity privacy", "Banquet gatecrashing"],
     solutions: "Suited lobby security, discreet ear-piece communication, and valet security checks."
@@ -430,7 +431,7 @@ export const industriesList = [
   {
     id: "events-venues",
     name: "Concerts, Expos & Stadiums",
-    image: "/images/bouncer-team.jpg",
+    image: assetPath('images/bouncer-team.jpg'),
     desc: "Dynamic crowd zoning, physical anti-stampede barricades, VIP green room perimeters, and emergency evacuation management.",
     challenges: ["Surge crowds", "Ticket forgery", "Prohibited contraband smuggling"],
     solutions: "Multi-tier bag search checkpoints, tactical bouncers at stage fronts, and command post coordination."
@@ -438,7 +439,7 @@ export const industriesList = [
   {
     id: "warehouses-logistics",
     name: "Warehouses & Logistics Hubs",
-    image: "/images/bouncer-warehouse.jpg",
+    image: assetPath('images/bouncer-warehouse.jpg'),
     desc: "Consignment seal tracking, truck driver escorting, loading dock surveillance, and yard perimeter security.",
     challenges: ["High-value freight shrinkage", "Blind spots across vast container yards", "Fire hazards"],
     solutions: "RFID seal tracking, yard roving motor guards, and thermal night vision cameras."
@@ -457,7 +458,7 @@ export const guardPersonnelCategories = [
       "Certified in basic First Aid and Fire Safety Operations",
       "Trained in polite yet firm communication"
     ],
-    image: "/images/bouncer-patrol.jpg"
+    image: assetPath('images/bouncer-patrol.jpg')
   },
   {
     category: "Site Security Supervisors",
@@ -470,7 +471,7 @@ export const guardPersonnelCategories = [
       "Expertise in operating electronic control rooms and biometrics",
       "Tactical leadership and rapid mobilization capabilities"
     ],
-    image: "/images/bouncer-supervisor.jpg"
+    image: assetPath('images/bouncer-supervisor.jpg')
   },
   {
     category: "Close Protection Officers (CPO)",
@@ -483,7 +484,7 @@ export const guardPersonnelCategories = [
       "High situational awareness and non-verbal threat identification",
       "Strict non-disclosure agreement compliance and total discretion"
     ],
-    image: "/images/bouncer-vip.jpg"
+    image: assetPath('images/bouncer-vip.jpg')
   },
   {
     category: "Event Marshals & Bouncers",
@@ -496,7 +497,7 @@ export const guardPersonnelCategories = [
       "Specialized female bouncer contingents for women safety handling",
       "Rapid team containment techniques for unruly gatherings"
     ],
-    image: "/images/bouncer-team.jpg"
+    image: assetPath('images/bouncer-team.jpg')
   }
 ];
 
@@ -543,84 +544,84 @@ export const galleryItems = [
     id: 1,
     title: "Uniformed Guard Roll Call & Turnout Inspection",
     category: "Security Personnel",
-    image: "/images/about-formation.jpg",
+    image: assetPath('images/about-formation.jpg'),
     desc: "Morning turnout briefing ensuring spotless uniform discipline, equipment readiness, and post orders."
   },
   {
     id: 2,
     title: "Corporate Reception Concierge & Access Control",
     category: "Corporate Security",
-    image: "/images/bouncer-corporate.jpg",
+    image: assetPath('images/bouncer-corporate.jpg'),
     desc: "Polished front-desk security officers managing smart turnstiles, visitor badges, and executive floors."
   },
   {
     id: 3,
     title: "Heavy Manufacturing Gate & Logistics Weighbridge",
     category: "Industrial Security",
-    image: "/images/industry-manufacturing.jpg",
+    image: assetPath('images/industry-manufacturing.jpg'),
     desc: "Inward/outward consignment verification, truck driver screening, and gate barrier management."
   },
   {
     id: 4,
     title: "Gated Community RFID Boom Barrier Operations",
     category: "Residential Security",
-    image: "/images/industry-residential.jpg",
+    image: assetPath('images/industry-residential.jpg'),
     desc: "Ensuring peaceful, child-safe environments with digital app visitor approvals and roving patrols."
   },
   {
     id: 5,
     title: "High-Profile Event Crowd Barrier Management",
     category: "Event Security",
-    image: "/images/bouncer-event.jpg",
+    image: assetPath('images/bouncer-event.jpg'),
     desc: "Pedestrian staging, DFMD entry screening, and anti-stampede crowd control at major summits."
   },
   {
     id: 6,
     title: "Close Protection Officer Tactical Motorcade Escort",
     category: "Security Personnel",
-    image: "/images/bouncer-vip.jpg",
+    image: assetPath('images/bouncer-vip.jpg'),
     desc: "Elite personal bodyguards securing high-risk principals and VIP delegations during city transit."
   },
   {
     id: 7,
     title: "24/7 CCTV Video Wall Telemetry Operations",
     category: "Corporate Security",
-    image: "/images/bouncer-shift.jpg",
+    image: assetPath('images/bouncer-shift.jpg'),
     desc: "Continuous remote video surveillance tracking multi-site alarm triggers and field dispatching."
   },
   {
     id: 8,
     title: "Industrial Night Perimeter Foot Patrol",
     category: "Industrial Security",
-    image: "/images/bouncer-patrol.jpg",
+    image: assetPath('images/bouncer-patrol.jpg'),
     desc: "Tactical night checks of warehouse fence lines, emergency exits, and container storage yards."
   },
   {
     id: 9,
     title: "Active Infrastructure & Construction Access Control",
     category: "Industrial Security",
-    image: "/images/bouncer-construction.jpg",
+    image: assetPath('images/bouncer-construction.jpg'),
     desc: "Vigilant perimeter checkpost and worker safety induction management at active civil work sites."
   },
   {
     id: 10,
     title: "Upscale Hospitality & Nightlife Security Bouncers",
     category: "Event Security",
-    image: "/images/bouncer-nightlife.jpg",
+    image: assetPath('images/bouncer-nightlife.jpg'),
     desc: "Authoritative guest list management, crowd decorum, and venue entry protection."
   },
   {
     id: 11,
     title: "Corporate Lobby Digital QR Access Turnstile Operations",
     category: "Corporate Security",
-    image: "/images/bouncer-access.jpg",
+    image: assetPath('images/bouncer-access.jpg'),
     desc: "High-throughput visitor verification and badge scanning at modern corporate headquarters."
   },
   {
     id: 12,
     title: "Senior Operational Field Supervisor Post Audit",
     category: "Security Personnel",
-    image: "/images/bouncer-supervisor.jpg",
+    image: assetPath('images/bouncer-supervisor.jpg'),
     desc: "Meticulous on-site guard turnout inspection, SOP verification, and shift roster logging."
   }
 ];

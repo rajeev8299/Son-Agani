@@ -38,6 +38,7 @@ import EditorialFAQ from '../components/EditorialFAQ';
 import Lightbox from '../components/Lightbox';
 import CustomerReviewsSlider from '../components/CustomerReviewsSlider';
 import DynamicIcon from '../components/DynamicIcon';
+import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 
 const Home = () => {
@@ -70,7 +71,7 @@ const Home = () => {
             loop
             playsInline
             className="hero-cinematic-video"
-            poster="/images/hero-bouncer-indian.jpg"
+            poster={assetPath("images/hero-bouncer-indian.jpg")}
           >
             <source
               src="https://res.cloudinary.com/wsligng6/video/upload/v1793184213/Untitled_design.mp4"
@@ -202,12 +203,12 @@ const Home = () => {
                 boxShadow: 'var(--shadow-lg)'
               }}>
                 <img 
-                  src="/images/bouncer-corporate.jpg" 
+                  src={assetPath("images/bouncer-corporate.jpg")} 
                   alt="SON AGNI SECURITIES Professional Indian Security Reception and Operations Center" 
                   style={{ width: '100%', height: '500px', objectFit: 'cover', objectPosition: 'center' }}
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = '/images/about-formation.jpg';
+                    e.currentTarget.src = assetPath('images/about-formation.jpg');
                   }}
                   loading="lazy"
                 />

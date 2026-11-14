@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetPath } from '../utils/assetPath';
 import './PageHeader.css';
 
 /**
@@ -29,7 +30,7 @@ const PageHeader = ({
       {bgImage && (
         <div className="page-header-bg-wrap" aria-hidden="true">
           <img 
-            src={bgImage} 
+            src={assetPath(bgImage)} 
             alt="" 
             className="page-header-bg-img" 
             loading="eager"

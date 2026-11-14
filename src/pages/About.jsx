@@ -15,6 +15,7 @@ import {
 import { companyConfig } from '../data/companyInfo';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
+import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 
 const About = () => {
@@ -61,12 +62,12 @@ const About = () => {
 
             <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--color-border-dark)' }}>
               <img 
-                src="/images/about-formation.jpg" 
+                src={assetPath("images/about-formation.jpg")} 
                 alt="SON AGNI SECURITIES Security Personnel"
                 style={{ width: '100%', height: '460px', objectFit: 'cover', objectPosition: 'center' }}
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = '/about-team.jpg';
+                  e.currentTarget.src = assetPath('about-team.jpg');
                 }}
                 loading="lazy"
               />

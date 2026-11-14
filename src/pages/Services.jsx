@@ -12,6 +12,7 @@ import ServiceCard from '../components/ServiceCard';
 import DynamicIcon from '../components/DynamicIcon';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
+import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 
 const Services = () => {
@@ -164,7 +165,7 @@ const Services = () => {
 
             <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--color-border-dark)' }}>
               <img
-                src="/images/bouncer-warehouse.jpg"
+                src={assetPath("images/bouncer-warehouse.jpg")}
                 alt="Security Deployment at Warehouse Logistics Gate"
                 style={{ width: '100%', height: '420px', objectFit: 'cover' }}
               />

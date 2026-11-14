@@ -1,3 +1,5 @@
+import { assetPath } from '../utils/assetPath';
+
 // Centralized Official Company Configuration for SON AGNI SECURITIES
 // Registered Legal Entity: SONAGNI SECURITY SERVICES PRIVATE LIMITED
 
@@ -6,7 +8,7 @@ export const companyConfig = {
   legalName: "Sonagni Security Services Private Limited",
   legalNameUpper: "SONAGNI SECURITY SERVICES PRIVATE LIMITED",
   tagline: "YOUR SAFETY. OUR RESPONSIBILITY.",
-  logo: "/son-agni-logo-transparent.png",
+  logo: assetPath("son-agni-logo-transparent.png"),
   companyType: "Private Limited Company",
   businessCategory: "Private Security and Manpower Services",
   primaryLocation: "Varanasi, Uttar Pradesh, India",
@@ -46,7 +48,7 @@ export const companyConfig = {
       shortDesc: "Professional security support for warehouse and storage environments, focusing on premises protection, access monitoring, asset protection and security supervision.",
       fullDesc: "Sonagni Security Services Private Limited provides specialized security personnel for warehouses, fulfillment hubs, stockyards, and distribution centers. Our services focus on active premises protection, entry and exit supervision, dockside access monitoring, inventory shrinkage deterrence, and systematic security supervision.",
       icon: "Truck",
-      image: "/images/bouncer-warehouse.jpg",
+      image: assetPath("images/bouncer-warehouse.jpg"),
       benefits: [
         "Premises monitoring and perimeter security enforcement",
         "Vehicle and inward/outward goods gate entry logging",
@@ -67,7 +69,7 @@ export const companyConfig = {
       shortDesc: "Security support for construction sites, including site monitoring, premises protection, access supervision and safeguarding construction-related assets.",
       fullDesc: "Sonagni Security Services Private Limited deploys vigilant security personnel trained to safeguard site boundaries, track construction equipment, and manage entry gates.",
       icon: "Factory",
-      image: "/images/bouncer-construction.jpg",
+      image: assetPath("images/bouncer-construction.jpg"),
       benefits: [
         "Protection of costly machinery, steel, cement, and power tools",
         "Prevention of unauthorized entry and public liability hazards",
@@ -88,7 +90,7 @@ export const companyConfig = {
       shortDesc: "Structured entry management, visitor monitoring, access control procedures and premises entry coordination.",
       fullDesc: "Managing who enters and exits your property is the first line of defense. Our personnel implement disciplined access control procedures, visitor verification, badge issuance, vehicle barrier operation, and orderly entry coordination across commercial and residential premises.",
       icon: "DoorClosed",
-      image: "/images/bouncer-access.jpg",
+      image: assetPath("images/bouncer-access.jpg"),
       benefits: [
         "Verification of visitor identity and purpose before entry",
         "Accurate record-keeping in physical or digital visitor registers",
@@ -109,7 +111,7 @@ export const companyConfig = {
       shortDesc: "Security patrolling and premises monitoring designed to help protect business properties, operational areas and physical assets.",
       fullDesc: "Our static and roving patrol security personnel conduct systematic checks across your business premises, common corridors, compound walls, parking bays, and utility zones. Patrolling acts as a strong physical deterrent against trespassing, vandalism, and unapproved property access.",
       icon: "ShieldAlert",
-      image: "/images/bouncer-patrol.jpg",
+      image: assetPath("images/bouncer-patrol.jpg"),
       benefits: [
         "Active physical deterrence against intrusion and trespassing",
         "Periodic checks of doors, windows, gates, and locks",
@@ -130,7 +132,7 @@ export const companyConfig = {
       shortDesc: "Security shift coordination, incident reporting, operational communication and structured incident response procedures.",
       fullDesc: "Disciplined security operations require seamless shift handovers, uninterrupted post coverage, and clear escalation protocols when irregularities arise. SON AGNI SECURITIES emphasizes structured shift coordination, roll-call inspections, accurate incident logging, and swift communication with client management.",
       icon: "Activity",
-      image: "/images/bouncer-shift.jpg",
+      image: assetPath("images/bouncer-shift.jpg"),
       benefits: [
         "Punctual shift changeovers ensuring zero unmanned security posts",
         "Standardized incident reporting for theft, damage, or unauthorized presence",
