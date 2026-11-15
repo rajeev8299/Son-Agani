@@ -1,17 +1,14 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
-  ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  Phone,
-  ChevronRight,
-  MapPin
+  ChevronRight
 } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
-import DynamicIcon from '../components/DynamicIcon';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 import { WhatsAppBrandIcon } from '../components/icons/ContactIcons';
 
 const ServiceDetails = () => {
@@ -27,6 +24,10 @@ const ServiceDetails = () => {
 
   return (
     <div className="service-details-page">
+      <SEO 
+        title={`${service.title} | ${companyConfig.brandName}`}
+        description={service.shortDesc}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title={service.title}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const IndustryCard = ({ industry }) => {
   return (
@@ -22,4 +21,3 @@ const IndustryCard = ({ industry }) => {
 };
 
 export default IndustryCard;
-

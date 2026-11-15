@@ -1,4 +1,4 @@
-import { assetPath } from '../utils/assetPath';
+import { assetPath } from '../utils/assetPath.js';
 
 // Centralized Official Company Configuration for SON AGNI SECURITIES
 // Registered Legal Entity: SONAGNI SECURITY SERVICES PRIVATE LIMITED

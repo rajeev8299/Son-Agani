@@ -1,26 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  Target, 
-  Eye, 
-  Award, 
-  Users, 
-  CheckCircle2, 
-  ArrowRight,
-  MapPin,
-  Building2,
-  FileText
-} from 'lucide-react';
+import { Target, Eye } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 
 const About = () => {
   return (
     <div className="about-page">
+      <SEO 
+        title={`About ${companyConfig.brandName}`} 
+        description={`${companyConfig.legalName} is a private security and manpower services company based in Varanasi, UP, providing warehouse security, construction guarding, and premises protection.`}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero 
         title={`ABOUT ${companyConfig.brandName}`}

@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
-  Search,
-  MapPin
-} from 'lucide-react';
+import { ArrowRight, CheckCircle2, Search } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
-import ServiceCard from '../components/ServiceCard';
 import DynamicIcon from '../components/DynamicIcon';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 
@@ -25,6 +19,10 @@ const Services = () => {
 
   return (
     <div className="services-page">
+      <SEO 
+        title={`Security Services | ${companyConfig.brandName}`}
+        description={`Explore the 5 core security services by ${companyConfig.legalName}: Warehouse security, construction guarding, access control, premises patrolling, and shift management.`}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title="OUR SECURITY SERVICES"

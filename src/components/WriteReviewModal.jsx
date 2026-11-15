@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Star, ShieldCheck, CheckCircle2, AlertCircle } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { X, Star, CheckCircle2, AlertCircle } from 'lucide-react';
 import { reviewService } from '../services/reviewService';
 
 const WriteReviewModal = ({ isOpen, onClose, onReviewSubmitted }) => {
@@ -10,6 +10,14 @@ const WriteReviewModal = ({ isOpen, onClose, onReviewSubmitted }) => {
   const [reviewMessage, setReviewMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null); // { type: 'success' | 'error', text: '' }
+
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   if (!isOpen) return null;
 
@@ -40,7 +48,7 @@ const WriteReviewModal = ({ isOpen, onClose, onReviewSubmitted }) => {
         text: 'Thank you! Your review has been submitted and is currently pending verification before appearing publicly.' 
       });
 
-      setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         setFullName('');
         setCompanyName('');
         setRating(5);

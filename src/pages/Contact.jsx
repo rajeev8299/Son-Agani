@@ -1,20 +1,18 @@
 import React from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Building,
-  FileText
-} from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 import ContactForm from '../components/ContactForm';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 import { WhatsAppBrandIcon } from '../components/icons/ContactIcons';
 
 const Contact = () => {
   return (
     <div className="contact-page">
+      <SEO 
+        title={`Contact ${companyConfig.brandName}`}
+        description={`Get in touch with ${companyConfig.legalName} in Varanasi, UP. Call ${companyConfig.phoneNumbers.primary} or send an enquiry.`}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title="CONTACT OUR COMMAND TEAM"

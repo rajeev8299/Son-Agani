@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldAlert, Home, ArrowRight } from 'lucide-react';
+import SEO from '../components/common/SEO';
+import { ROUTES } from '../config/routes';
+import { companyConfig } from '../data/companyInfo';
 
 const NotFound = () => {
   return (
@@ -13,11 +16,15 @@ const NotFound = () => {
       padding: '8rem 1.5rem 5rem 1.5rem',
       backgroundColor: 'var(--color-primary-black)'
     }}>
+      <SEO 
+        title={`Page Not Found (404) | ${companyConfig.brandName}`}
+        description="The requested page could not be located on the SON AGNI SECURITIES portal."
+      />
       <div className="container" style={{ maxWidth: '640px' }}>
         <div style={{
           width: '80px',
           height: '80px',
-          backgroundColor: 'rgba(193, 18, 31, 0.15)',
+          backgroundColor: 'rgba(200, 16, 46, 0.15)',
           border: '1px solid var(--color-primary-red)',
           borderRadius: 'var(--radius-card)',
           display: 'flex',
@@ -40,11 +47,11 @@ const NotFound = () => {
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/" className="btn btn-primary">
+          <Link to={ROUTES.HOME} className="btn btn-primary">
             <Home size={16} />
             <span>RETURN TO HOME</span>
           </Link>
-          <Link to="/services" className="btn btn-secondary">
+          <Link to={ROUTES.SERVICES} className="btn btn-secondary">
             <span>BROWSE SERVICES</span>
             <ArrowRight size={16} />
           </Link>
@@ -55,4 +62,3 @@ const NotFound = () => {
 };
 
 export default NotFound;
-

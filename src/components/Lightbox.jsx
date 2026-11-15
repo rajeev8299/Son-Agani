@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Lightbox = ({ items, currentIndex, isOpen, onClose, onPrev, onNext }) => {
   if (!isOpen || currentIndex < 0 || currentIndex >= items.length) return null;
@@ -52,4 +52,3 @@ const Lightbox = ({ items, currentIndex, isOpen, onClose, onPrev, onNext }) => {
 };
 
 export default Lightbox;
-

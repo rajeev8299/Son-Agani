@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
-  Briefcase, 
   MapPin, 
   Clock, 
   Send, 
@@ -14,6 +12,7 @@ import {
 import { jobOpenings } from '../data/siteData';
 import { companyConfig } from '../data/companyInfo';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 import '../styles/editorialLayouts.css';
 
 const Careers = () => {
@@ -31,6 +30,13 @@ const Careers = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const validate = () => {
     const errs = {};
@@ -67,7 +73,7 @@ const Careers = () => {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
     }, 1100);
@@ -81,6 +87,10 @@ const Careers = () => {
 
   return (
     <div className="careers-page">
+      <SEO 
+        title={`Security Careers & Recruitment | ${companyConfig.brandName}`}
+        description={`Join ${companyConfig.legalName} (${companyConfig.brandName}). Explore openings for security guards, supervisors, and bouncer personnel across India.`}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero 
         title="JOIN OUR SECURITY CADRE"

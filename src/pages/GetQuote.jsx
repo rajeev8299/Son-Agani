@@ -1,19 +1,16 @@
 import React from 'react';
-import { 
-  FileText, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  CheckCircle2, 
-  ShieldCheck 
-} from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 import QuoteForm from '../components/QuoteForm';
 import PremiumPageHero from '../components/PremiumPageHero';
+import SEO from '../components/common/SEO';
 
 const GetQuote = () => {
   return (
     <div className="quote-page">
+      <SEO 
+        title={`Request a Quote | ${companyConfig.brandName}`}
+        description={`Request a customized commercial security quotation from ${companyConfig.legalName}. Fast response for warehouse, industrial, and premises protection.`}
+      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title="REQUEST A SECURITY QUOTATION"
@@ -23,70 +20,58 @@ const GetQuote = () => {
         accentLabel="COMMERCIAL APPRAISAL FORM"
       />
 
-      {/* Form Section */}
+      {/* Main Quote Form Section */}
       <section className="section-padding bg-dark">
         <div className="container">
-          <div className="grid-quote-layout">
-            {/* Left: Main Multi-Section Form */}
-            <div>
-              <div style={{ marginBottom: '2rem' }}>
-                <span className="badge-tag">OFFICIAL REQUIREMENT FORM</span>
-                <h2 style={{ fontSize: '2rem', textTransform: 'uppercase', marginBottom: '0.75rem', color: 'var(--color-text-primary)' }}>
-                  FACILITY SECURITY ENQUIRY
-                </h2>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem' }}>
-                  Please fill out the form below with your facility specifications. Our administrative desk coordinates quotations for premises across India.
-                </p>
-              </div>
-
+          <div className="quote-layout-grid">
+            {/* Form Column */}
+            <div className="quote-main-col">
               <QuoteForm />
             </div>
 
-            {/* Right: Helpful Quotation Details - Open & Borderless */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-              <div style={{ padding: '2rem', backgroundColor: 'var(--color-surface)', borderRadius: '24px' }}>
-                <span className="badge-tag">STEP-BY-STEP</span>
-                <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
-                  Enquiry Process
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>01</span>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
-                      <strong style={{ color: 'var(--color-text-primary)' }}>Submission:</strong> Share your location, shift requirements, and property profile.
-                    </p>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>02</span>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
-                      <strong style={{ color: 'var(--color-text-primary)' }}>Assessment:</strong> Our operations team reviews guard headcount and gate management requirements.
-                    </p>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>03</span>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
-                      <strong style={{ color: 'var(--color-text-primary)' }}>Quotation:</strong> Receive a clear, itemized commercial estimate.
-                    </p>
-                  </div>
-                </div>
+            {/* Information Sidebar */}
+            <div className="quote-sidebar-col">
+              <div className="quote-sidebar-card">
+                <h3 className="sidebar-title">Quotation Protocol</h3>
+                <ul className="sidebar-list">
+                  <li>
+                    <strong>Facility Assessment:</strong> Our deployment officers evaluate post layout, ingress bottlenecks, and physical parameters.
+                  </li>
+                  <li>
+                    <strong>Customized Guard Force:</strong> We propose the ideal ratio of static guards, patrolling rounds, and supervisor oversight.
+                  </li>
+                  <li>
+                    <strong>Transparent Commercial Terms:</strong> Complete cost itemization with statutory compliance and standard shift allowances.
+                  </li>
+                </ul>
               </div>
 
-              <div style={{ padding: '2rem', backgroundColor: 'var(--color-surface)', borderRadius: '24px' }}>
-                <span className="badge-tag">DIRECT ASSISTANCE</span>
-                <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
-                  Direct Phone Enquiries
-                </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '1.25rem', lineHeight: '1.6' }}>
-                  Speak directly with our command coordinators:
+              <div className="quote-sidebar-card urgent-support">
+                <h4 style={{ color: 'var(--color-primary-red)', marginBottom: '0.5rem', fontWeight: 800 }}>
+                  Immediate Requirement?
+                </h4>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                  If you need urgent premises protection within 24 hours, contact our control desk directly:
                 </p>
-                <div style={{ fontWeight: '800', fontSize: '1.15rem', marginBottom: '0.35rem' }}>
-                  <a href={companyConfig.phoneNumbers.primaryTel} style={{ color: 'var(--color-text-primary)' }}>{companyConfig.phoneNumbers.primary}</a>
-                </div>
-                <div style={{ fontWeight: '800', fontSize: '1.15rem', marginBottom: '1rem' }}>
-                  <a href={companyConfig.phoneNumbers.secondaryTel} style={{ color: 'var(--color-text-primary)' }}>{companyConfig.phoneNumbers.secondary}</a>
-                </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-                  Email: <a href={companyConfig.emailMailto} style={{ color: 'var(--color-primary-red)', fontWeight: 700 }}>{companyConfig.email}</a>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <a 
+                    href={companyConfig.phoneNumbers.primaryTel} 
+                    style={{ fontWeight: 800, color: 'var(--color-text-primary)', textDecoration: 'none' }}
+                  >
+                    {companyConfig.phoneNumbers.primary}
+                  </a>
+                  <a 
+                    href={companyConfig.phoneNumbers.secondaryTel} 
+                    style={{ fontWeight: 800, color: 'var(--color-text-primary)', textDecoration: 'none' }}
+                  >
+                    {companyConfig.phoneNumbers.secondary}
+                  </a>
+                  <a 
+                    href={companyConfig.emailMailto} 
+                    style={{ color: 'var(--color-primary-red)', fontSize: '0.875rem', textDecoration: 'none', marginTop: '0.25rem' }}
+                  >
+                    {companyConfig.email}
+                  </a>
                 </div>
               </div>
             </div>

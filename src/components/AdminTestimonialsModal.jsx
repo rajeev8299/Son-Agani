@@ -7,7 +7,6 @@ import {
   Eye, 
   EyeOff, 
   CheckCircle, 
-  Star, 
   ShieldCheck,
   List,
   MessageSquare,
@@ -33,11 +32,11 @@ const AdminTestimonialsModal = ({
   const [adminReviews, setAdminReviews] = useState([]);
   const [loadingReviews, setLoadingReviews] = useState(false);
 
-  const fetchAdminReviews = async () => {
+  const refreshReviews = async () => {
     try {
       setLoadingReviews(true);
       const revs = await reviewService.getAllReviewsForAdmin();
-      setAdminReviews(revs);
+      setAdminReviews(revs || []);
     } catch (err) {
       console.error('Error fetching admin reviews:', err);
     } finally {
@@ -46,13 +45,21 @@ const AdminTestimonialsModal = ({
   };
 
   useEffect(() => {
+    let isCurrent = true;
     if (isOpen && panelSection === 'reviews') {
-      fetchAdminReviews();
+      reviewService.getAllReviewsForAdmin()
+        .then(revs => {
+          if (isCurrent) setAdminReviews(revs || []);
+        })
+        .catch(err => {
+          console.error('Error fetching admin reviews:', err);
+        });
     }
+    return () => { isCurrent = false; };
   }, [isOpen, panelSection]);
 
-  // Form State for Testimonials
-  const initialForm = {
+  // Form State Factory for Testimonials
+  const getInitialForm = () => ({
     client_name: '',
     company_name: '',
     designation: '',
@@ -63,9 +70,9 @@ const AdminTestimonialsModal = ({
     is_verified: true,
     is_published: true,
     display_order: 0
-  };
+  });
 
-  const [formData, setFormData] = useState(initialForm);
+  const [formData, setFormData] = useState(getInitialForm);
 
   if (!isOpen) return null;
 
@@ -88,7 +95,7 @@ const AdminTestimonialsModal = ({
 
   const handleAddNewClick = () => {
     setEditingId(null);
-    setFormData(initialForm);
+    setFormData(getInitialForm());
     setActiveTab('add');
   };
 
@@ -113,7 +120,7 @@ const AdminTestimonialsModal = ({
   const handleApproveReview = async (id) => {
     try {
       await reviewService.approveReview(id);
-      await fetchAdminReviews();
+      await refreshReviews();
     } catch (err) {
       alert('Error approving review: ' + err.message);
     }
@@ -122,7 +129,7 @@ const AdminTestimonialsModal = ({
   const handleRejectReview = async (id) => {
     try {
       await reviewService.rejectReview(id);
-      await fetchAdminReviews();
+      await refreshReviews();
     } catch (err) {
       alert('Error rejecting review: ' + err.message);
     }
@@ -132,7 +139,7 @@ const AdminTestimonialsModal = ({
     if (window.confirm('Are you sure you want to delete this review permanently?')) {
       try {
         await reviewService.deleteReview(id);
-        await fetchAdminReviews();
+        await refreshReviews();
       } catch (err) {
         alert('Error deleting review: ' + err.message);
       }

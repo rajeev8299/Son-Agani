@@ -31,11 +31,15 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const prevPathRef = useRef(location.pathname);
   useEffect(() => {
-    setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
-    setMoreDropdownOpen(false);
-    setMobileMoreOpen(false);
+    if (prevPathRef.current !== location.pathname) {
+      prevPathRef.current = location.pathname;
+      setMobileMenuOpen(false);
+      setServicesDropdownOpen(false);
+      setMoreDropdownOpen(false);
+      setMobileMoreOpen(false);
+    }
   }, [location.pathname]);
 
   // Lock body scroll when mobile drawer is open, restore when closed
@@ -110,7 +114,7 @@ const Header = () => {
               <NavLink 
                 to="/services" 
                 className={({ isActive }) => `nav-link dropdown-trigger ${isActive ? 'active' : ''}`}
-                onClick={(e) => {
+                onClick={() => {
                   onLinkClick('/services');
                 }}
               >
