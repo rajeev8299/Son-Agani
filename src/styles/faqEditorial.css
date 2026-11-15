@@ -8,7 +8,8 @@
 
 .faq-editorial-section {
   background-color: var(--color-background-secondary, #E5E2D7);
-  padding: clamp(3.5rem, 5vw, 4.5rem) 0;
+  padding-top: clamp(3rem, 4.5vw, 4rem);
+  padding-bottom: clamp(1.5rem, 2.2vw, 1.85rem);
   border-top: none;
   position: relative;
   overflow: hidden;
@@ -229,6 +230,10 @@
   transition: background-color 0.25s ease;
 }
 
+.faq-editorial-row:last-child {
+  margin-bottom: 0;
+}
+
 .faq-editorial-row:first-child {
   border-top: none;
 }
@@ -328,6 +333,10 @@
 }
 
 @media (max-width: 640px) {
+  .faq-editorial-section {
+    padding-top: 2.25rem;
+    padding-bottom: 1.15rem;
+  }
   .faq-row-answer-inner {
     padding-left: 0.5rem;
   }
