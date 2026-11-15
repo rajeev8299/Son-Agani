@@ -40,6 +40,7 @@ import CustomerReviewsSlider from '../components/CustomerReviewsSlider';
 import DynamicIcon from '../components/DynamicIcon';
 import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
+import '../styles/processTimeline.css';
 
 const Home = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -430,8 +431,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 8: 5-STEP PROCESS BLUEPRINT - HORIZONTAL EDITORIAL TIMELINE */}
-      <section className="section-padding bg-secondary-dark">
+      {/* SECTION 8: 5-STEP SECURITY DEPLOYMENT PROCESS — ANIMATED GLOWING ARROW TIMELINE */}
+      <section className="section-padding bg-secondary-dark process-timeline-section">
         <div className="container">
           <div className="section-header">
             <span className="badge-tag">SYSTEMATIC DEPLOYMENT</span>
@@ -441,14 +442,66 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="process-editorial-timeline">
-            {processSteps.map((step, idx) => (
-              <div key={idx} className="process-timeline-step">
-                <div className="process-timeline-num">{step.number}</div>
-                <h3 className="process-timeline-title">{step.title}</h3>
-                <p className="process-timeline-desc">{step.desc}</p>
+          <div className="process-timeline-wrap">
+            {/* Central Vertical Track Line */}
+            <div className="timeline-vertical-track" aria-hidden="true" />
+
+            {/* Continuous Travelling Light & Glowing Downward Arrowhead */}
+            <div className="timeline-travel-arrow-beam" aria-hidden="true">
+              <div className="travel-beam-trail" />
+              <div className="travel-beam-arrowhead">
+                <svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 10L0.803848 1L11.1962 1L6 10Z" fill="#C8102E" />
+                </svg>
               </div>
-            ))}
+            </div>
+
+            {/* Alternating Steps: 01 RIGHT -> 02 LEFT -> 03 RIGHT -> 04 LEFT -> 05 RIGHT */}
+            {processSteps.map((step, idx) => {
+              const isRight = idx % 2 === 0; // 0, 2, 4 -> Step 01, 03, 05
+              const isLeft = !isRight;       // 1, 3 -> Step 02, 04
+              const stepNum = idx + 1;
+
+              return (
+                <div key={step.number || idx} className="timeline-item-row">
+                  {/* Central Numbered Circular Node */}
+                  <div 
+                    className={`timeline-center-node timeline-node-${stepNum}`}
+                    aria-label={`Step ${step.number}`}
+                  >
+                    {step.number}
+                  </div>
+
+                  {/* Alternating Horizontal Connector Line */}
+                  <div 
+                    className={`timeline-connector ${isRight ? 'connector-right' : 'connector-left'} connector-${stepNum}`}
+                    aria-hidden="true"
+                  />
+
+                  {/* Left Column Content Slot */}
+                  <div className={`timeline-slot-left ${isRight ? 'timeline-slot-empty' : ''}`}>
+                    {isLeft && (
+                      <div className="timeline-content-block">
+                        <span className="timeline-step-badge">STAGE {step.number} // PROTOCOL</span>
+                        <h3 className="timeline-step-title">{step.title}</h3>
+                        <p className="timeline-step-desc">{step.desc}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Column Content Slot */}
+                  <div className={`timeline-slot-right ${isLeft ? 'timeline-slot-empty' : ''}`}>
+                    {isRight && (
+                      <div className="timeline-content-block">
+                        <span className="timeline-step-badge">STAGE {step.number} // PROTOCOL</span>
+                        <h3 className="timeline-step-title">{step.title}</h3>
+                        <p className="timeline-step-desc">{step.desc}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

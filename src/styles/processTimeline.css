@@ -1,0 +1,609 @@
+/* ==============================================================================
+   SON AGNI SECURITIES — Animated Glowing Red Arrow Process Timeline
+   Center-aligned alternating vertical deployment pathway.
+   Colors:
+     Primary Red: #C8102E
+     Deep Black:  #171717
+     Off-White:   #EAE7DC
+   ============================================================================== */
+
+.process-timeline-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0 6rem 0;
+}
+
+/* Outer Timeline Wrapper */
+.process-timeline-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 4.5rem auto 0 auto;
+  padding: 1rem 0 2rem 0;
+}
+
+/* ------------------------------------------------------------------------------
+   1. Central Vertical Track Line
+   ------------------------------------------------------------------------------ */
+.timeline-vertical-track {
+  position: absolute;
+  top: 1.5rem;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(200, 16, 46, 0.22) 4%,
+    rgba(200, 16, 46, 0.3) 50%,
+    rgba(200, 16, 46, 0.22) 96%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(200, 16, 46, 0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle ambient vertical aura behind track */
+.timeline-vertical-track::before {
+  content: '';
+  position: absolute;
+  inset: -10px -4px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(200, 16, 46, 0.08) 10%,
+    rgba(200, 16, 46, 0.12) 50%,
+    rgba(200, 16, 46, 0.08) 90%,
+    transparent 100%
+  );
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------------------
+   2. Continuous Light Flow & Downward Glowing Arrow
+   ------------------------------------------------------------------------------ */
+.timeline-travel-arrow-beam {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 90px;
+  pointer-events: none;
+  z-index: 4;
+  animation: timelineLightTravel 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Trailing light comet beam */
+.travel-beam-trail {
+  width: 3px;
+  height: 78px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(200, 16, 46, 0.35) 30%,
+    rgba(200, 16, 46, 0.85) 75%,
+    #FFFFFF 100%
+  );
+  box-shadow: 
+    0 0 12px rgba(200, 16, 46, 0.8),
+    0 0 24px rgba(200, 16, 46, 0.45);
+  border-radius: 3px;
+}
+
+/* Glowing Downward Arrowhead */
+.travel-beam-arrowhead {
+  width: 12px;
+  height: 10px;
+  margin-top: -2px;
+  filter: drop-shadow(0 0 8px #C8102E) drop-shadow(0 0 16px rgba(200, 16, 46, 0.9));
+  animation: arrowheadPulse 1.2s ease-in-out infinite alternate;
+}
+
+.travel-beam-arrowhead svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes timelineLightTravel {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  98% {
+    top: 98%;
+    opacity: 0;
+  }
+  100% {
+    top: 98%;
+    opacity: 0;
+  }
+}
+
+@keyframes arrowheadPulse {
+  from {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 6px #C8102E);
+  }
+  to {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px #C8102E) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+  }
+}
+
+/* ------------------------------------------------------------------------------
+   3. Alternating Timeline Rows (Desktop & Tablet)
+   Sequence: 01 RIGHT -> 02 LEFT -> 03 RIGHT -> 04 LEFT -> 05 RIGHT
+   ------------------------------------------------------------------------------ */
+.timeline-item-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(3rem, 6vw, 6.5rem);
+  align-items: center;
+  position: relative;
+  min-height: 130px;
+  margin-bottom: clamp(3rem, 5.5vw, 4.5rem);
+}
+
+.timeline-item-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Left Slot & Right Slot */
+.timeline-slot-left {
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.timeline-slot-right {
+  grid-column: 2;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Empty placeholder to balance grid */
+.timeline-slot-empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Content Presentation (Clean, card-free, editorial) */
+.timeline-content-block {
+  max-width: 480px;
+  position: relative;
+  z-index: 3;
+}
+
+.timeline-slot-left .timeline-content-block {
+  text-align: right;
+  padding-right: 1.5rem;
+}
+
+.timeline-slot-right .timeline-content-block {
+  text-align: left;
+  padding-left: 1.5rem;
+}
+
+.timeline-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary-red);
+  margin-bottom: 0.45rem;
+}
+
+.timeline-step-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+.timeline-step-desc {
+  font-size: 0.94rem;
+  line-height: 1.68;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------------------
+   4. Central Numbered Nodes
+   ------------------------------------------------------------------------------ */
+.timeline-center-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-surface, #F0EEE5);
+  border: 2px solid rgba(200, 16, 46, 0.4);
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+  transition: all 0.35s ease;
+  user-select: none;
+}
+
+/* Core inner marker point */
+.timeline-center-node::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(200, 16, 46, 0.25);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Individual Node Illuminations Synced with 7.5s Beam Travel */
+.timeline-node-1 {
+  animation: nodeIllumination1 7.5s ease-in-out infinite;
+}
+.timeline-node-2 {
+  animation: nodeIllumination2 7.5s ease-in-out infinite;
+}
+.timeline-node-3 {
+  animation: nodeIllumination3 7.5s ease-in-out infinite;
+}
+.timeline-node-4 {
+  animation: nodeIllumination4 7.5s ease-in-out infinite;
+}
+.timeline-node-5 {
+  animation: nodeIllumination5 7.5s ease-in-out infinite;
+}
+
+@keyframes nodeIllumination1 {
+  0%, 4% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+  8%, 15% {
+    border-color: #C8102E;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E;
+    color: #C8102E;
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #FFFFFF;
+  }
+  20%, 100% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes nodeIllumination2 {
+  0%, 23% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+  27%, 34% {
+    border-color: #C8102E;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E;
+    color: #C8102E;
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #FFFFFF;
+  }
+  39%, 100% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes nodeIllumination3 {
+  0%, 42% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+  46%, 53% {
+    border-color: #C8102E;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E;
+    color: #C8102E;
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #FFFFFF;
+  }
+  58%, 100% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes nodeIllumination4 {
+  0%, 61% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+  65%, 72% {
+    border-color: #C8102E;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E;
+    color: #C8102E;
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #FFFFFF;
+  }
+  77%, 100% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes nodeIllumination5 {
+  0%, 80% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+  84%, 92% {
+    border-color: #C8102E;
+    box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E;
+    color: #C8102E;
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #FFFFFF;
+  }
+  97%, 100% {
+    border-color: rgba(200, 16, 46, 0.4);
+    box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06);
+    color: var(--color-text-primary);
+  }
+}
+
+/* ------------------------------------------------------------------------------
+   5. Alternating Horizontal Connector Lines
+   ------------------------------------------------------------------------------ */
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(200, 16, 46, 0.3), rgba(200, 16, 46, 0.15));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Step 01, 03, 05: Rightward Connector */
+.connector-right {
+  left: 50%;
+  width: clamp(2.5rem, 5vw, 4.5rem);
+  transform: translateY(-50%);
+  background: linear-gradient(to right, rgba(200, 16, 46, 0.6), rgba(200, 16, 46, 0.15));
+}
+
+/* Step 02, 04: Leftward Connector */
+.connector-left {
+  right: 50%;
+  width: clamp(2.5rem, 5vw, 4.5rem);
+  transform: translateY(-50%);
+  background: linear-gradient(to left, rgba(200, 16, 46, 0.6), rgba(200, 16, 46, 0.15));
+}
+
+/* Glowing Highlight Synced on Connector */
+.connector-1 {
+  animation: connectorHighlight1 7.5s ease-in-out infinite;
+}
+.connector-2 {
+  animation: connectorHighlight2 7.5s ease-in-out infinite;
+}
+.connector-3 {
+  animation: connectorHighlight3 7.5s ease-in-out infinite;
+}
+.connector-4 {
+  animation: connectorHighlight4 7.5s ease-in-out infinite;
+}
+.connector-5 {
+  animation: connectorHighlight5 7.5s ease-in-out infinite;
+}
+
+@keyframes connectorHighlight1 {
+  0%, 7% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  10%, 15% {
+    box-shadow: 0 0 10px #C8102E;
+    opacity: 1;
+    background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3));
+  }
+  20%, 100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes connectorHighlight2 {
+  0%, 26% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  29%, 34% {
+    box-shadow: 0 0 10px #C8102E;
+    opacity: 1;
+    background: linear-gradient(to left, #C8102E, rgba(200, 16, 46, 0.3));
+  }
+  39%, 100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes connectorHighlight3 {
+  0%, 45% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  48%, 53% {
+    box-shadow: 0 0 10px #C8102E;
+    opacity: 1;
+    background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3));
+  }
+  58%, 100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes connectorHighlight4 {
+  0%, 64% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  67%, 72% {
+    box-shadow: 0 0 10px #C8102E;
+    opacity: 1;
+    background: linear-gradient(to left, #C8102E, rgba(200, 16, 46, 0.3));
+  }
+  77%, 100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes connectorHighlight5 {
+  0%, 83% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+  86%, 92% {
+    box-shadow: 0 0 10px #C8102E;
+    opacity: 1;
+    background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3));
+  }
+  97%, 100% {
+    box-shadow: none;
+    opacity: 0.6;
+  }
+}
+
+/* ------------------------------------------------------------------------------
+   6. Responsive Layouts: Mobile & Tablet
+   ------------------------------------------------------------------------------ */
+@media (max-width: 860px) {
+  .process-timeline-wrap {
+    margin-top: 3.5rem;
+    padding-left: 0.5rem;
+  }
+
+  /* Move rail towards the left on narrow screens */
+  .timeline-vertical-track {
+    left: 28px;
+    transform: none;
+  }
+
+  .timeline-travel-arrow-beam {
+    left: 28px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 72px;
+    margin-bottom: 3.25rem;
+    min-height: auto;
+  }
+
+  /* Place all slots on the right on mobile */
+  .timeline-slot-left,
+  .timeline-slot-right {
+    display: block;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .timeline-slot-empty {
+    display: none;
+  }
+
+  .timeline-slot-left .timeline-content-block,
+  .timeline-slot-right .timeline-content-block {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .timeline-center-node {
+    left: 28px;
+    top: 24px;
+    transform: translate(-50%, 0);
+    width: 44px;
+    height: 44px;
+    font-size: 0.85rem;
+  }
+
+  /* All connectors point right on mobile */
+  .connector-left,
+  .connector-right {
+    left: 28px;
+    right: auto;
+    width: 32px;
+    top: 46px;
+    transform: none;
+    background: linear-gradient(to right, rgba(200, 16, 46, 0.6), rgba(200, 16, 46, 0.15));
+  }
+}
+
+/* ------------------------------------------------------------------------------
+   7. Accessibility: prefers-reduced-motion
+   ------------------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-travel-arrow-beam,
+  .travel-beam-arrowhead,
+  .timeline-node-1,
+  .timeline-node-2,
+  .timeline-node-3,
+  .timeline-node-4,
+  .timeline-node-5,
+  .connector-1,
+  .connector-2,
+  .connector-3,
+  .connector-4,
+  .connector-5 {
+    animation: none !important;
+  }
+
+  .timeline-travel-arrow-beam {
+    display: none;
+  }
+
+  .timeline-center-node {
+    border-color: #C8102E;
+    color: #C8102E;
+  }
+}
