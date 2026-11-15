@@ -1,5 +1,7 @@
 # SON AGNI SECURITIES PRIVATE LIMITED
 
+[![Build & Verification](https://github.com/rajeev8299/Son-Agani/actions/workflows/ci.yml/badge.svg)](https://github.com/rajeev8299/Son-Agani/actions)
+
 Official production website repository for **SON AGNI SECURITIES PRIVATE LIMITED** — a premier security, guarding, and manpower solutions provider based in Varanasi, Uttar Pradesh.
 
 ---
@@ -35,7 +37,7 @@ This repository contains the complete frontend web application, design system, i
 son-agni-securities-website/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Pages build & deploy automation
+│       └── ci.yml              # Automated build verification CI workflow
 ├── public/
 │   ├── images/                 # Optimized guard, bouncer, and industry photos
 │   ├── logo.png                # Primary brand logo

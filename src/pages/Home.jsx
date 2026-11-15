@@ -93,50 +93,48 @@ const Home = () => {
               <span>PROFESSIONAL SECURITY & MANPOWER SOLUTIONS</span>
             </div>
 
-            {/* Main Heading & Second Heading Line */}
+            {/* Main Heading — Exactly 2 lines on desktop: Line 1 White, Line 2 Signature Red */}
             <h1 className="hero-cinematic-headline">
-              <span className="hero-headline-accent">PROTECTING</span> WHAT MATTERS.
-              <span className="hero-headline-sub">EVERY MOMENT.</span>
+              <span className="hero-headline-line1">YOUR SAFETY.</span>
+              <span className="hero-headline-line2">OUR RESPONSIBILITY.</span>
             </h1>
 
             {/* Supporting Heading */}
             <h2 className="hero-cinematic-support-heading">
-              Reliable Security. Responsible Service. Professional People.
+              Professional security for the places that matter.
             </h2>
 
             {/* Description */}
             <p className="hero-cinematic-description">
-              SON AGNI SECURITIES delivers dependable security solutions for businesses, warehouses and construction sites. From premises protection and access management to security supervision and operational coordination, we help safeguard your people, property and daily operations.
+              SON AGNI SECURITIES delivers dependable security solutions for businesses, warehouses and construction sites. We help protect your people, property and daily operations through professional security services.
             </p>
 
             {/* CTA Buttons */}
             <div className="hero-cinematic-cta-group">
-              <Link to="/get-a-quote" className="btn btn-hero-primary btn-lg">
+              <Link to="/get-a-quote" className="btn btn-hero-primary">
                 <span>REQUEST A SECURITY QUOTE</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={17} />
               </Link>
-              <Link to="/services" className="btn btn-hero-secondary btn-lg">
+              <Link to="/services" className="btn btn-hero-secondary">
                 <span>EXPLORE OUR SERVICES</span>
               </Link>
             </div>
 
-            {/* Trust Highlights */}
+            {/* Service Highlights */}
             <div className="hero-cinematic-highlights">
               <div className="hero-highlight-item">
-                <CheckCircle2 size={16} />
+                <CheckCircle2 size={15} />
                 <span>SITE & PREMISES SECURITY</span>
               </div>
+              <span className="hero-highlight-dot" aria-hidden="true">&bull;</span>
               <div className="hero-highlight-item">
-                <CheckCircle2 size={16} />
+                <CheckCircle2 size={15} />
+                <span>ACCESS MANAGEMENT</span>
+              </div>
+              <span className="hero-highlight-dot" aria-hidden="true">&bull;</span>
+              <div className="hero-highlight-item">
+                <CheckCircle2 size={15} />
                 <span>WAREHOUSE & CONSTRUCTION SECURITY</span>
-              </div>
-              <div className="hero-highlight-item">
-                <CheckCircle2 size={16} />
-                <span>ACCESS & VISITOR MANAGEMENT</span>
-              </div>
-              <div className="hero-highlight-item">
-                <CheckCircle2 size={16} />
-                <span>SHIFT & SECURITY COORDINATION</span>
               </div>
             </div>
           </div>
