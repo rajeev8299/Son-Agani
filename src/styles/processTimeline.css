@@ -524,7 +524,8 @@
     transform: none;
   }
 
-  .timeline-travel-arrow-beam {
+  .timeline-travel-arrow-beam,
+  .approach-travel-arrow-beam {
     left: 28px;
     transform: translateX(-50%);
   }
@@ -584,6 +585,7 @@
    ------------------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   .timeline-travel-arrow-beam,
+  .approach-travel-arrow-beam,
   .travel-beam-arrowhead,
   .timeline-node-1,
   .timeline-node-2,
@@ -594,11 +596,26 @@
   .connector-2,
   .connector-3,
   .connector-4,
-  .connector-5 {
+  .connector-5,
+  .approach-node-1,
+  .approach-node-2,
+  .approach-node-3,
+  .approach-node-4,
+  .approach-node-5,
+  .approach-node-6,
+  .approach-node-7,
+  .approach-connector-1,
+  .approach-connector-2,
+  .approach-connector-3,
+  .approach-connector-4,
+  .approach-connector-5,
+  .approach-connector-6,
+  .approach-connector-7 {
     animation: none !important;
   }
 
-  .timeline-travel-arrow-beam {
+  .timeline-travel-arrow-beam,
+  .approach-travel-arrow-beam {
     display: none;
   }
 
@@ -606,4 +623,134 @@
     border-color: #C8102E;
     color: #C8102E;
   }
+}
+
+/* ==============================================================================
+   8. Approach Timeline (7-Step Center-Aligned Alternating Timeline)
+   ============================================================================== */
+.approach-travel-arrow-beam {
+  animation: approachLightTravel 10.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes approachLightTravel {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  98% {
+    top: 98%;
+    opacity: 0;
+  }
+  100% {
+    top: 98%;
+    opacity: 0;
+  }
+}
+
+/* 7 Node Illuminations */
+.approach-node-1 { animation: approachNodeIllum1 10.5s ease-in-out infinite; }
+.approach-node-2 { animation: approachNodeIllum2 10.5s ease-in-out infinite; }
+.approach-node-3 { animation: approachNodeIllum3 10.5s ease-in-out infinite; }
+.approach-node-4 { animation: approachNodeIllum4 10.5s ease-in-out infinite; }
+.approach-node-5 { animation: approachNodeIllum5 10.5s ease-in-out infinite; }
+.approach-node-6 { animation: approachNodeIllum6 10.5s ease-in-out infinite; }
+.approach-node-7 { animation: approachNodeIllum7 10.5s ease-in-out infinite; }
+
+@keyframes approachNodeIllum1 {
+  0%, 2% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  5%, 10% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  14%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum2 {
+  0%, 16% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  19%, 25% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  29%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum3 {
+  0%, 30% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  33%, 39% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  43%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum4 {
+  0%, 45% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  48%, 54% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  58%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum5 {
+  0%, 60% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  63%, 69% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  73%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum6 {
+  0%, 74% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  77%, 83% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  87%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+@keyframes approachNodeIllum7 {
+  0%, 88% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+  91%, 96% { border-color: #C8102E; box-shadow: 0 0 20px rgba(200, 16, 46, 0.75), 0 0 8px #C8102E; color: #C8102E; transform: translate(-50%, -50%) scale(1.08); background-color: #FFFFFF; }
+  99%, 100% { border-color: rgba(200, 16, 46, 0.4); box-shadow: 0 4px 14px rgba(23, 23, 23, 0.06); color: var(--color-text-primary); }
+}
+
+/* 7 Connector Highlights */
+.approach-connector-1 { animation: approachConnHighlight1 10.5s ease-in-out infinite; }
+.approach-connector-2 { animation: approachConnHighlight2 10.5s ease-in-out infinite; }
+.approach-connector-3 { animation: approachConnHighlight3 10.5s ease-in-out infinite; }
+.approach-connector-4 { animation: approachConnHighlight4 10.5s ease-in-out infinite; }
+.approach-connector-5 { animation: approachConnHighlight5 10.5s ease-in-out infinite; }
+.approach-connector-6 { animation: approachConnHighlight6 10.5s ease-in-out infinite; }
+.approach-connector-7 { animation: approachConnHighlight7 10.5s ease-in-out infinite; }
+
+@keyframes approachConnHighlight1 {
+  0%, 4% { box-shadow: none; opacity: 0.6; }
+  7%, 10% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3)); }
+  14%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight2 {
+  0%, 18% { box-shadow: none; opacity: 0.6; }
+  21%, 25% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to left, #C8102E, rgba(200, 16, 46, 0.3)); }
+  29%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight3 {
+  0%, 32% { box-shadow: none; opacity: 0.6; }
+  35%, 39% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3)); }
+  43%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight4 {
+  0%, 47% { box-shadow: none; opacity: 0.6; }
+  50%, 54% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to left, #C8102E, rgba(200, 16, 46, 0.3)); }
+  58%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight5 {
+  0%, 62% { box-shadow: none; opacity: 0.6; }
+  65%, 69% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3)); }
+  73%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight6 {
+  0%, 76% { box-shadow: none; opacity: 0.6; }
+  79%, 83% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to left, #C8102E, rgba(200, 16, 46, 0.3)); }
+  87%, 100% { box-shadow: none; opacity: 0.6; }
+}
+
+@keyframes approachConnHighlight7 {
+  0%, 90% { box-shadow: none; opacity: 0.6; }
+  93%, 96% { box-shadow: 0 0 10px #C8102E; opacity: 1; background: linear-gradient(to right, #C8102E, rgba(200, 16, 46, 0.3)); }
+  99%, 100% { box-shadow: none; opacity: 0.6; }
 }
