@@ -38,24 +38,34 @@ const Contact = () => {
                 Both public brand name and registered legal entity details are provided below for commercial verification.
               </p>
 
-              {/* Legal identity box */}
-              <div style={{
-                backgroundColor: 'var(--color-surface)',
-                border: '1px solid var(--color-border)',
-                borderLeft: '4px solid var(--color-primary-red)',
-                padding: '1.25rem',
-                borderRadius: 'var(--radius-card)',
-                marginBottom: '2rem',
-                boxShadow: 'var(--shadow-sm)'
-              }}>
-                <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Public Brand Name</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-text-primary)', marginTop: '0.15rem' }}>{companyConfig.brandName}</div>
+              {/* Legal identity details - Open & Borderless */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-primary-red)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block' }}>
+                    PUBLIC BRAND NAME
+                  </span>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--color-text-primary)', marginTop: '0.2rem' }}>
+                    {companyConfig.brandName}
+                  </div>
+                </div>
                 
-                <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.75rem' }}>Registered Legal Name</div>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-secondary)', marginTop: '0.15rem' }}>{companyConfig.legalName}</div>
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-primary-red)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block' }}>
+                    REGISTERED LEGAL ENTITY
+                  </span>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-secondary)', marginTop: '0.2rem' }}>
+                    {companyConfig.legalName}
+                  </div>
+                </div>
 
-                <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.75rem' }}>Operational Category</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-primary-red)', marginTop: '0.15rem' }}>{companyConfig.businessCategory}</div>
+                <div>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-primary-red)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block' }}>
+                    OPERATIONAL CATEGORY
+                  </span>
+                  <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text-primary)', marginTop: '0.2rem' }}>
+                    {companyConfig.businessCategory}
+                  </div>
+                </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -126,27 +136,16 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Nationwide Operations & Deployment Reach */}
-      <section style={{ backgroundColor: 'var(--color-background)', borderTop: '1px solid var(--color-border)', padding: '3.5rem 0' }}>
-        <div className="container">
-          <div style={{
-            height: '240px',
-            backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-card)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            padding: '2rem',
-            boxShadow: 'var(--shadow-sm)'
-          }}>
-            <MapPin size={42} style={{ color: 'var(--color-primary-red)', marginBottom: '1rem' }} />
-            <h3 style={{ fontSize: '1.35rem', textTransform: 'uppercase', marginBottom: '0.5rem', color: 'var(--color-text-primary)' }}>
+      {/* Nationwide Operations & Deployment Reach - Seamless Open Presentation */}
+      <section className="section-padding bg-secondary-dark">
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <MapPin size={40} style={{ color: 'var(--color-primary-red)', margin: '0 auto 1.25rem auto' }} />
+            <span className="badge-tag" style={{ margin: '0 auto 0.75rem auto' }}>PAN-INDIA DEPLOYMENT</span>
+            <h3 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.35rem)', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
               Nationwide Operational Reach
             </h3>
-            <p style={{ color: 'var(--color-text-secondary)', maxWidth: '580px', fontSize: '0.925rem' }}>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.7' }}>
               We deploy trained security personnel, bouncers, and facility marshals to commercial, industrial, and residential establishments across Uttar Pradesh and major metropolitan corridors throughout India.
             </p>
           </div>

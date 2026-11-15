@@ -42,49 +42,51 @@ const GetQuote = () => {
               <QuoteForm />
             </div>
 
-            {/* Right: Helpful Quotation Details */}
-            <div>
-              <div className="form-card" style={{ marginBottom: '2rem' }}>
-                <h3 style={{ fontSize: '1.2rem', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-text-primary)', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }}>
+            {/* Right: Helpful Quotation Details - Open & Borderless */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+              <div style={{ padding: '2rem', backgroundColor: 'var(--color-surface)', borderRadius: '24px' }}>
+                <span className="badge-tag">STEP-BY-STEP</span>
+                <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Enquiry Process
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 800 }}>1.</span>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
-                      <strong>Submission:</strong> Share your location, shift requirements, and property profile.
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>01</span>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
+                      <strong style={{ color: 'var(--color-text-primary)' }}>Submission:</strong> Share your location, shift requirements, and property profile.
                     </p>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 800 }}>2.</span>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
-                      <strong>Assessment:</strong> Our operations team reviews guard headcount and gate management requirements.
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>02</span>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
+                      <strong style={{ color: 'var(--color-text-primary)' }}>Assessment:</strong> Our operations team reviews guard headcount and gate management requirements.
                     </p>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 800 }}>3.</span>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
-                      <strong>Quotation:</strong> Receive a clear, itemized commercial estimate.
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+                    <span style={{ color: 'var(--color-primary-red)', fontWeight: 900, fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>03</span>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', margin: 0 }}>
+                      <strong style={{ color: 'var(--color-text-primary)' }}>Quotation:</strong> Receive a clear, itemized commercial estimate.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="form-card">
-                <h3 style={{ fontSize: '1.2rem', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-text-primary)', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem' }}>
+              <div style={{ padding: '2rem', backgroundColor: 'var(--color-surface)', borderRadius: '24px' }}>
+                <span className="badge-tag">DIRECT ASSISTANCE</span>
+                <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', marginBottom: '1rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Direct Phone Enquiries
                 </h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginBottom: '1rem', lineHeight: '1.5' }}>
-                  Speak directly with {companyConfig.legalName}:
+                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: '1.25rem', lineHeight: '1.6' }}>
+                  Speak directly with our command coordinators:
                 </p>
-                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.25rem' }}>
+                <div style={{ fontWeight: '800', fontSize: '1.15rem', marginBottom: '0.35rem' }}>
                   <a href={companyConfig.phoneNumbers.primaryTel} style={{ color: 'var(--color-text-primary)' }}>{companyConfig.phoneNumbers.primary}</a>
                 </div>
-                <div style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+                <div style={{ fontWeight: '800', fontSize: '1.15rem', marginBottom: '1rem' }}>
                   <a href={companyConfig.phoneNumbers.secondaryTel} style={{ color: 'var(--color-text-primary)' }}>{companyConfig.phoneNumbers.secondary}</a>
                 </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                  Email: <a href={companyConfig.emailMailto} style={{ color: 'var(--color-primary-red)', fontWeight: 600 }}>{companyConfig.email}</a>
+                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
+                  Email: <a href={companyConfig.emailMailto} style={{ color: 'var(--color-primary-red)', fontWeight: 700 }}>{companyConfig.email}</a>
                 </div>
               </div>
             </div>

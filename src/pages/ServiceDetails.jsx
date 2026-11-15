@@ -51,7 +51,7 @@ const ServiceDetails = () => {
                 <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
                   {service.fullDesc}
                 </p>
-                <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--color-border)', marginBottom: '2rem' }}>
+                <div style={{ borderRadius: '24px', overflow: 'hidden', marginBottom: '2.5rem' }}>
                   <img
                     src={service.image}
                     alt={service.title}
@@ -60,54 +60,58 @@ const ServiceDetails = () => {
                 </div>
               </div>
 
-              {/* Key Benefits */}
-              <div style={{ marginBottom: '3rem' }}>
-                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)' }}>
+              {/* Key Benefits - Open Layout */}
+              <div style={{ marginBottom: '3.5rem' }}>
+                <span className="badge-tag">VALUE PROPOSITION</span>
+                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Core Protection Benefits
                 </h3>
-                <div className="grid-2" style={{ gap: '1.25rem' }}>
+                <div className="grid-2" style={{ gap: '1.5rem 3rem' }}>
                   {service.benefits.map((benefit, bIdx) => (
                     <div
                       key={bIdx}
                       style={{
-                        backgroundColor: 'var(--color-surface)',
-                        padding: '1.25rem',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--radius-card)',
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: '0.85rem'
                       }}
                     >
                       <CheckCircle2 size={18} style={{ color: 'var(--color-primary-red)', flexShrink: 0, marginTop: '0.2rem' }} />
-                      <span style={{ fontSize: '0.925rem', color: 'var(--color-text-secondary)' }}>{benefit}</span>
+                      <span style={{ fontSize: '0.975rem', color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>{benefit}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Guard Responsibilities & SOP */}
-              <div style={{ marginBottom: '3rem' }}>
-                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)' }}>
+              {/* Guard Responsibilities & SOP - Open Numbered Timeline */}
+              <div style={{ marginBottom: '3.5rem' }}>
+                <span className="badge-tag">DAILY EXECUTION</span>
+                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.5rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   On-Duty Guard Responsibilities
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                   {service.responsibilities.map((resp, rIdx) => (
                     <div
                       key={rIdx}
                       style={{
-                        padding: '1rem 1.25rem',
-                        backgroundColor: 'var(--color-surface)',
-                        borderLeft: '3px solid var(--color-primary-red)',
-                        border: '1px solid var(--color-border)',
-                        borderLeftWidth: '4px',
-                        borderRadius: 'var(--radius-card)',
-                        color: 'var(--color-text-secondary)',
-                        fontSize: '0.95rem',
-                        boxShadow: 'var(--shadow-sm)'
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '1.25rem'
                       }}
                     >
-                      <strong style={{ color: 'var(--color-text-primary)' }}>Step {rIdx + 1}:</strong> {resp}
+                      <span style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.15rem',
+                        fontWeight: 900,
+                        color: 'var(--color-primary-red)',
+                        lineHeight: 1.4,
+                        flexShrink: 0
+                      }}>
+                        0{rIdx + 1}
+                      </span>
+                      <p style={{ margin: 0, fontSize: '0.975rem', color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>
+                        {resp}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -115,21 +119,21 @@ const ServiceDetails = () => {
 
               {/* Ideal Industries */}
               <div>
-                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)' }}>
+                <span className="badge-tag">SUITABILITY</span>
+                <h3 style={{ fontSize: '1.5rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Suitable Operational Environments
                 </h3>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem' }}>
                   {service.idealIndustries.map((ind, iIdx) => (
                     <span
                       key={iIdx}
                       style={{
                         backgroundColor: 'var(--color-surface)',
-                        border: '1px solid var(--color-border)',
-                        padding: '0.5rem 1rem',
+                        padding: '0.5rem 1.15rem',
                         borderRadius: 'var(--radius-pill)',
                         fontSize: '0.85rem',
-                        color: 'var(--color-text-secondary)',
-                        fontWeight: 600
+                        color: 'var(--color-text-primary)',
+                        fontWeight: 700
                       }}
                     >
                       {ind}
@@ -141,11 +145,17 @@ const ServiceDetails = () => {
 
             {/* Right Sidebar: Booking Card & Other Services */}
             <div>
-              <div className="form-card" style={{ marginBottom: '2rem', borderTop: '4px solid var(--color-primary-red)' }}>
-                <h3 style={{ fontSize: '1.35rem', textTransform: 'uppercase', marginBottom: '0.75rem', color: 'var(--color-text-primary)' }}>
+              <div style={{
+                padding: '2.5rem 2rem',
+                backgroundColor: 'var(--color-surface)',
+                borderRadius: '24px',
+                marginBottom: '2rem'
+              }}>
+                <span className="badge-tag" style={{ marginBottom: '0.5rem' }}>CUSTOM QUOTATION</span>
+                <h3 style={{ fontSize: '1.35rem', textTransform: 'uppercase', marginBottom: '0.75rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Enquire for {service.title}
                 </h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.88rem', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.92rem', marginBottom: '1.75rem', lineHeight: '1.6' }}>
                   Submit your premises details to receive an itemized quotation tailored to your operational requirements.
                 </p>
 
@@ -163,13 +173,13 @@ const ServiceDetails = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
-                  style={{ width: '100%', marginBottom: '0.85rem', borderColor: '#25D366', color: '#25D366', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                  style={{ width: '100%', marginBottom: '1.5rem', borderColor: '#25D366', color: '#25D366', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
                 >
                   <WhatsAppBrandIcon size={18} color="#25D366" />
                   <span>WHATSAPP ENQUIRY</span>
                 </a>
 
-                <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)', fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
+                <div style={{ paddingTop: '1.25rem', fontSize: '0.825rem', color: 'var(--color-text-muted)' }}>
                   <div style={{ color: 'var(--color-text-primary)', fontWeight: 'bold', marginBottom: '0.25rem' }}>
                     Official Phone Numbers:
                   </div>

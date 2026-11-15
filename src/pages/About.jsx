@@ -44,23 +44,27 @@ const About = () => {
                 We support commercial and industrial clients through structured premises patrolling, visitor management, material entry logging, and shift supervision. Our operations are governed by transparent communication, disciplined workforce deployment, and strict compliance with Indian corporate standards.
               </p>
 
-              <div className="grid-2" style={{ gap: '1rem', marginTop: '1.5rem' }}>
-                <div style={{ padding: '1.25rem', backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-sm)' }}>
-                  <span style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Operational Category</span>
-                  <h4 style={{ color: 'var(--color-primary-red)', fontSize: '1.15rem', fontWeight: 800, marginTop: '0.2rem' }}>
+              <div style={{ display: 'flex', gap: '3rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
+                <div>
+                  <span style={{ color: 'var(--color-primary-red)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block', marginBottom: '0.35rem' }}>
+                    OPERATIONAL CATEGORY
+                  </span>
+                  <h4 style={{ color: 'var(--color-text-primary)', fontSize: '1.25rem', fontWeight: 800 }}>
                     {companyConfig.businessCategory}
                   </h4>
                 </div>
-                <div style={{ padding: '1.25rem', backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-sm)' }}>
-                  <span style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Service Coverage</span>
-                  <h4 style={{ color: 'var(--color-text-primary)', fontSize: '1.15rem', fontWeight: 800, marginTop: '0.2rem' }}>
+                <div>
+                  <span style={{ color: 'var(--color-primary-red)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block', marginBottom: '0.35rem' }}>
+                    SERVICE COVERAGE
+                  </span>
+                  <h4 style={{ color: 'var(--color-text-primary)', fontSize: '1.25rem', fontWeight: 800 }}>
                     Pan-India Operations
                   </h4>
                 </div>
               </div>
             </div>
 
-            <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--color-border-dark)' }}>
+            <div style={{ borderRadius: '24px', overflow: 'hidden' }}>
               <img 
                 src={assetPath("images/about-formation.jpg")} 
                 alt="SON AGNI SECURITIES Security Personnel"
@@ -154,23 +158,29 @@ const About = () => {
       {/* SECTION 3: MISSION & VISION */}
       <section className="section-padding bg-dark">
         <div className="container">
-          <div className="grid-2" style={{ gap: '2.5rem' }}>
-            <div className="form-card" style={{ padding: '3rem 2.5rem', borderLeft: '4px solid var(--color-primary-red)' }}>
-              <div className="trust-icon-box" style={{ width: 54, height: 54, marginBottom: '1.5rem' }}>
-                <Target size={28} />
+          <div className="grid-2" style={{ gap: 'clamp(2.5rem, 5vw, 5rem)' }}>
+            <div>
+              <div style={{ color: 'var(--color-primary-red)', marginBottom: '1.25rem' }}>
+                <Target size={36} />
               </div>
-              <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)' }}>Our Mission</h3>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.7', fontSize: '1rem' }}>
+              <span className="badge-tag">PURPOSE & OBJECTIVE</span>
+              <h3 style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)', fontWeight: 800 }}>
+                Our Mission
+              </h3>
+              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.8', fontSize: '1.05rem' }}>
                 To provide dependable, disciplined, and customer-aligned security and manpower services that help commercial establishments, construction sites, and storage facilities safeguard their daily operations, assets, and personnel.
               </p>
             </div>
 
-            <div className="form-card" style={{ padding: '3rem 2.5rem', borderLeft: '4px solid var(--color-primary-red)' }}>
-              <div className="trust-icon-box" style={{ width: 54, height: 54, marginBottom: '1.5rem' }}>
-                <Eye size={28} />
+            <div>
+              <div style={{ color: 'var(--color-primary-red)', marginBottom: '1.25rem' }}>
+                <Eye size={36} />
               </div>
-              <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)' }}>Our Vision</h3>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.7', fontSize: '1rem' }}>
+              <span className="badge-tag">LONG-TERM ASPIRATION</span>
+              <h3 style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)', marginBottom: '1rem', textTransform: 'uppercase', color: 'var(--color-text-primary)', fontWeight: 800 }}>
+                Our Vision
+              </h3>
+              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.8', fontSize: '1.05rem' }}>
                 To build an established and trusted reputation across Uttar Pradesh and throughout India as a reliable partner for private security, disciplined manpower coordination, and premises protection.
               </p>
             </div>

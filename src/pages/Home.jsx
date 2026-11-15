@@ -191,14 +191,12 @@ const Home = () => {
       {/* SECTION 3: ABOUT SON AGNI SECURITIES (SPLIT SCREEN) */}
       <section className="section-padding bg-dark">
         <div className="container">
-          <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
+          <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
             {/* Left Image */}
             <div style={{ position: 'relative' }}>
               <div style={{
-                borderRadius: 'var(--radius-card)',
-                overflow: 'hidden',
-                border: '1px solid var(--color-border-dark)',
-                boxShadow: 'var(--shadow-lg)'
+                borderRadius: '24px',
+                overflow: 'hidden'
               }}>
                 <img 
                   src={assetPath("images/bouncer-corporate.jpg")} 
@@ -213,20 +211,21 @@ const Home = () => {
               </div>
               <div style={{
                 position: 'absolute',
-                bottom: '-1.5rem',
-                right: '1.5rem',
-                backgroundColor: 'var(--color-primary-red)',
+                bottom: '1.25rem',
+                left: '1.25rem',
+                backgroundColor: 'rgba(23, 23, 23, 0.88)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
                 color: '#FFFFFF',
-                padding: '1.25rem 1.75rem',
-                borderRadius: 'var(--radius-card)',
-                boxShadow: 'var(--shadow-md)',
-                maxWidth: '260px'
+                padding: '0.75rem 1.35rem',
+                borderRadius: '50px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.75rem'
               }}>
-                <span style={{ fontSize: '1.1rem', fontWeight: 900, display: 'block', lineHeight: 1.1 }}>
-                  24/7 ACTIVE
-                </span>
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  OPERATIONAL COMMAND
+                <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: 'var(--color-primary-red)', display: 'inline-block' }} />
+                <span style={{ fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  24/7 ACTIVE OPERATIONAL COMMAND
                 </span>
               </div>
             </div>

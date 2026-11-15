@@ -37,24 +37,22 @@ const Services = () => {
       {/* Services Grid with Search */}
       <section className="section-padding bg-dark">
         <div className="container">
-          {/* Controls Bar */}
+          {/* Controls Bar - Open & Natural */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-end',
             gap: '1.5rem',
             marginBottom: '3rem',
-            padding: '1.25rem 1.75rem',
-            backgroundColor: 'var(--color-secondary-black)',
-            border: '1px solid var(--color-border-dark)',
-            borderRadius: 'var(--radius-card)'
+            padding: '0'
           }}>
-            <div>
-              <h3 style={{ fontSize: '1.25rem', textTransform: 'uppercase', color: 'var(--color-text-primary)' }}>
+            <div style={{ maxWidth: '640px' }}>
+              <span className="badge-tag">SERVICE DIRECTORY</span>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', textTransform: 'uppercase', color: 'var(--color-text-primary)', fontWeight: 800, marginTop: '0.35rem' }}>
                 Primary Service Offerings
               </h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)' }}>
+              <p style={{ fontSize: '0.95rem', color: 'var(--color-text-secondary)', lineHeight: '1.6', marginTop: '0.5rem' }}>
                 Specialized security and manpower deployment for commercial premises, storage facilities, and construction projects.
               </p>
             </div>
@@ -70,14 +68,14 @@ const Services = () => {
                   width: '100%',
                   backgroundColor: 'var(--color-surface)',
                   border: '1px solid var(--color-border)',
-                  borderRadius: 'var(--radius-card)',
-                  padding: '0.6rem 1rem 0.6rem 2.5rem',
+                  borderRadius: 'var(--radius-pill)',
+                  padding: '0.65rem 1.25rem 0.65rem 2.6rem',
                   color: 'var(--color-text-primary)',
                   fontSize: '0.9rem',
                   boxSizing: 'border-box'
                 }}
               />
-              <Search size={16} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-text-muted)' }} />
+              <Search size={16} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-text-muted)' }} />
             </div>
           </div>
 
@@ -163,7 +161,7 @@ const Services = () => {
               </div>
             </div>
 
-            <div style={{ borderRadius: 'var(--radius-card)', overflow: 'hidden', border: '1px solid var(--color-border-dark)' }}>
+            <div style={{ borderRadius: '24px', overflow: 'hidden' }}>
               <img
                 src={assetPath("images/bouncer-warehouse.jpg")}
                 alt="Security Deployment at Warehouse Logistics Gate"

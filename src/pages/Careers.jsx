@@ -101,21 +101,22 @@ const Careers = () => {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {jobOpenings.slice(0, 3).map((job, jIdx) => (
               <div 
                 key={job.id} 
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '80px 1.5fr 2fr 200px',
+                  gridTemplateColumns: '70px 1.5fr 2fr 180px',
                   gap: '2rem',
                   alignItems: 'center',
-                  padding: '2rem 0.5rem',
-                  borderBottom: '1px solid var(--color-border)',
-                  borderTop: jIdx === 0 ? '1px solid var(--color-border)' : 'none'
+                  padding: '1.75rem 1.5rem',
+                  borderRadius: '18px',
+                  transition: 'background-color 0.25s ease'
                 }}
+                className="career-opening-row"
               >
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--color-primary-red)' }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 900, color: 'var(--color-primary-red)' }}>
                   0{jIdx + 1}
                 </div>
 

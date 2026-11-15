@@ -479,11 +479,11 @@
    ========================================================================== */
 .industry-card {
   position: relative;
-  border-radius: var(--radius-card);
+  border-radius: 18px;
   overflow: hidden;
   height: 320px;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  border: none;
+  box-shadow: none;
   cursor: pointer;
 }
 
@@ -657,19 +657,19 @@
 }
 
 .process-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
-  padding: 2rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1rem 0;
   position: relative;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .process-card:hover {
-  border-color: var(--color-primary-red);
+  border-color: transparent;
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 }
 
 .process-num {
@@ -703,12 +703,11 @@
    Nationwide Coverage Cards
    ========================================================================== */
 .coverage-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-primary-red);
-  padding: 1.75rem;
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-sm);
+  background-color: transparent;
+  border: none;
+  padding: 1rem 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .coverage-card h3 {
@@ -731,17 +730,16 @@
 }
 
 .coverage-banner {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-primary-red);
-  padding: 2rem 2.5rem;
-  border-radius: var(--radius-card);
+  background: var(--color-background-secondary);
+  border: none;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.75rem, 4vw, 3.5rem);
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: space-between;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 @media (min-width: 768px) {
@@ -802,10 +800,10 @@
 
 .gallery-card {
   position: relative;
-  border-radius: var(--radius-card);
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  border: none;
+  box-shadow: none;
   cursor: pointer;
 }
 
@@ -973,18 +971,17 @@
    Testimonial Carousel Box
    ========================================================================== */
 .testimonial-carousel-box {
-  max-width: 860px;
+  max-width: 880px;
   margin: 0 auto;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-primary-red);
-  padding: 3rem 2.5rem;
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-md);
+  background-color: transparent;
+  border: none;
+  padding: 1rem 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .testimonial-quote-text {
-  font-size: 1.25rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   font-style: italic;
   color: var(--color-text-primary);
   line-height: 1.7;
@@ -997,8 +994,8 @@
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 1.5rem;
-  border-top: 1px solid var(--color-border);
-  padding-top: 1.5rem;
+  border-top: none;
+  padding-top: 0;
 }
 
 .testimonial-author-name {
@@ -1120,15 +1117,14 @@
    CTA Block (Light Theme)
    ========================================================================== */
 .cta-banner {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-primary-red);
-  padding: 4rem 2rem;
-  border-radius: var(--radius-lg);
+  background: transparent;
+  border: none;
+  padding: 2.5rem 0;
+  border-radius: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 }
 
 .cta-banner::before {
@@ -1175,10 +1171,10 @@
    ========================================================================== */
 .form-card {
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 @media (max-width: 640px) {
