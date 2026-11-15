@@ -1,1 +1,0 @@
-import{_ as e,n as t}from"./index-DDxQdkTn.js";import{t as n}from"./PageHeader-Dtm2KaYd.js";e();var r=t(),i=({title:e,description:t,bgImage:i,accentLabel:a,className:o})=>(0,r.jsx)(n,{title:e,description:t,bgImage:i,accentLabel:a,className:o});export{i as t};
