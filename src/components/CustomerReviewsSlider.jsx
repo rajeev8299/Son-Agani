@@ -71,6 +71,20 @@ const CustomerReviewsSlider = () => {
     setManualOffset(prev => prev - step);
   };
 
+  // Desktop pointer hover: pause only when cursor is inside the complete outer review section
+  const handlePointerEnter = (e) => {
+    // Only pause on actual mouse/pointer cursors, avoid synthetic touch tap events
+    if (e.pointerType === 'mouse' || e.pointerType === 'pen' || !e.pointerType) {
+      setIsPaused(true);
+    }
+  };
+
+  const handlePointerLeave = (e) => {
+    if (e.pointerType === 'mouse' || e.pointerType === 'pen' || !e.pointerType) {
+      setIsPaused(false);
+    }
+  };
+
   // Mobile Touch Gestures
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
@@ -143,12 +157,10 @@ const CustomerReviewsSlider = () => {
 
   return (
     <section 
-      className="customer-reviews-section" 
+      className={`customer-reviews-section ${isPaused ? 'is-paused' : ''}`}
       aria-label="Client Reviews and Ratings"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
       <div className="container">
         {/* Section Header */}
@@ -170,6 +182,7 @@ const CustomerReviewsSlider = () => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
           title="Reviews slide continuously. Hover or touch to pause."
         >
           <div 

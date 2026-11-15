@@ -82,12 +82,23 @@
   display: flex;
   width: max-content;
   animation: reviewsMarqueeScroll 38s linear infinite;
+  animation-play-state: running;
   will-change: transform;
 }
 
-/* Pause marquee on hover, keyboard focus, or touch */
-.reviews-slider-viewport:hover .reviews-marquee-track,
-.reviews-slider-viewport:focus-within .reviews-marquee-track,
+/* 
+   HOVER-TO-PAUSE & AUTO-RESUME:
+   Attach hover detection to the OUTER REVIEW SECTION CONTAINER.
+   When the mouse cursor enters anywhere inside the complete review section
+   (review panels, text, star ratings, customer names, empty spaces between panels,
+   navigation controls, and the visible area):
+   - Immediately pause the continuous animation.
+   - When cursor leaves the review section: immediately resume from exact position.
+   - When keyboard focus enters: pause.
+*/
+.customer-reviews-section:hover .reviews-marquee-track,
+.customer-reviews-section:focus-within .reviews-marquee-track,
+.customer-reviews-section.is-paused .reviews-marquee-track,
 .reviews-marquee-track.is-paused {
   animation-play-state: paused !important;
 }
