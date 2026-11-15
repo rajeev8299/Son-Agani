@@ -1,0 +1,1 @@
+import{_ as e,r as t,v as n}from"./index-DDxQdkTn.js";var r=n(e(),1),i=({title:e,description:n})=>((0,r.useEffect)(()=>{let r=`${t.brandName} | Professional Security & Manpower Services`;if(document.title=e?`${e} | ${t.brandName}`:r,n){let e=document.querySelector(`meta[name="description"]`);e&&e.setAttribute(`content`,n)}},[e,n]),null);export{i as t};
