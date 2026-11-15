@@ -31,7 +31,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 74% 14%;
+  object-position: center top;
   display: block;
   filter: brightness(1.18) contrast(1.05) saturate(1.06);
   transform: none; /* Avoid artificial zoom that crops the head */
@@ -299,7 +299,7 @@
     max-width: 600px;
   }
   .hero-cinematic-video {
-    object-position: 70% 12%;
+    object-position: 70% top;
   }
   .hero-cinematic-headline {
     font-size: clamp(2.15rem, 4.8vw, 3.25rem);
@@ -318,7 +318,7 @@
     max-width: 100%;
   }
   .hero-cinematic-video {
-    object-position: 72% 10%;
+    object-position: 70% top;
     filter: brightness(1.15) contrast(1.05) saturate(1.04);
   }
   .hero-cinematic-scrim {
@@ -367,7 +367,7 @@
 
 @media (max-width: 480px) {
   .hero-cinematic-video {
-    object-position: 70% 8%;
+    object-position: 68% top;
   }
 }
 
