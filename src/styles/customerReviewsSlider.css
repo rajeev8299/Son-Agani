@@ -13,14 +13,14 @@
 .customer-reviews-section {
   position: relative;
   background-color: var(--color-background, #EAE7DC);
-  padding: clamp(3.5rem, 6vw, 6rem) 0;
+  padding: clamp(3rem, 4.5vw, 4.25rem) 0;
   border-top: none;
   overflow: hidden;
 }
 
 /* Header block */
 .reviews-slider-header {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.25rem);
   text-align: left;
 }
 
@@ -121,30 +121,29 @@
   }
 }
 
-/* Review Card — SON AGNI Website Warm Theme Spec */
+/* Review Card — Open Editorial Presentation */
 .review-panel-card {
   width: 380px;
   max-width: 85vw;
   flex-shrink: 0;
-  min-height: 290px;
-  background: #EAE7DC;
-  background: linear-gradient(145deg, #F0EEE5 0%, #EAE7DC 100%);
-  border: 1px solid rgba(23, 23, 23, 0.08);
-  border-radius: 26px;
-  padding: clamp(1.5rem, 2.5vw, 2.15rem);
-  box-shadow: 0 8px 24px rgba(35, 30, 20, 0.04);
+  min-height: 270px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem 0.85rem;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
   position: relative;
   user-select: none;
 }
 
 .review-panel-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(200, 16, 46, 0.45);
-  box-shadow: 0 16px 36px rgba(200, 16, 46, 0.1), 0 4px 12px rgba(35, 30, 20, 0.05);
+  transform: translateY(-3px);
+  border: none;
+  box-shadow: none;
 }
 
 /* Card Header: Stars & Quote Icon */

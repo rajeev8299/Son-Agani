@@ -1,14 +1,17 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
+  ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  ChevronRight
+  Phone,
+  ChevronRight,
+  MapPin
 } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
+import DynamicIcon from '../components/DynamicIcon';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
-import SEO from '../components/common/SEO';
 import { WhatsAppBrandIcon } from '../components/icons/ContactIcons';
 
 const ServiceDetails = () => {
@@ -24,10 +27,6 @@ const ServiceDetails = () => {
 
   return (
     <div className="service-details-page">
-      <SEO 
-        title={`${service.title} | ${companyConfig.brandName}`}
-        description={service.shortDesc}
-      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title={service.title}
@@ -144,12 +143,10 @@ const ServiceDetails = () => {
               </div>
             </div>
 
-            {/* Right Sidebar: Booking Card & Other Services */}
+            {/* Right Sidebar: Booking & Other Services - Open & Borderless */}
             <div>
               <div style={{
-                padding: '2.5rem 2rem',
-                backgroundColor: 'var(--color-surface)',
-                borderRadius: '24px',
+                padding: '0 0 2rem 0',
                 marginBottom: '2rem'
               }}>
                 <span className="badge-tag" style={{ marginBottom: '0.5rem' }}>CUSTOM QUOTATION</span>
@@ -180,7 +177,7 @@ const ServiceDetails = () => {
                   <span>WHATSAPP ENQUIRY</span>
                 </a>
 
-                <div style={{ paddingTop: '1.25rem', fontSize: '0.825rem', color: 'var(--color-text-muted)' }}>
+                <div style={{ paddingTop: '1rem', fontSize: '0.825rem', color: 'var(--color-text-muted)' }}>
                   <div style={{ color: 'var(--color-text-primary)', fontWeight: 'bold', marginBottom: '0.25rem' }}>
                     Official Phone Numbers:
                   </div>
@@ -196,12 +193,12 @@ const ServiceDetails = () => {
                 </div>
               </div>
 
-              {/* Other Services */}
-              <div className="form-card">
-                <h4 style={{ fontSize: '1.1rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)' }}>
+              {/* Other Services - Clean Open List */}
+              <div style={{ padding: '0.5rem 0' }}>
+                <h4 style={{ fontSize: '1.1rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 800 }}>
                   Other Core Services
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                   {otherServices.map((rel) => (
                     <Link
                       key={rel.id}
@@ -210,14 +207,11 @@ const ServiceDetails = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        padding: '0.75rem 1rem',
-                        backgroundColor: 'var(--color-surface)',
-                        borderRadius: 'var(--radius-card)',
-                        border: '1px solid var(--color-border)',
+                        padding: '0.75rem 0',
                         color: 'var(--color-text-primary)',
-                        fontSize: '0.88rem',
-                        transition: 'border-color 0.2s',
-                        boxShadow: 'var(--shadow-sm)'
+                        fontSize: '0.92rem',
+                        fontWeight: 600,
+                        transition: 'color 0.2s'
                       }}
                     >
                       <span>{rel.title}</span>

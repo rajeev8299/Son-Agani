@@ -9,6 +9,7 @@ const PremiumPageHero = ({
   title,
   description,
   bgImage,
+  visualTheme, // Deprecated: Extra shield/emblem removed per redesign specification
   accentLabel,
   className
 }) => {

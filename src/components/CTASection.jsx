@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, PhoneCall, MessageCircle } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
-import { ROUTES } from '../config/routes';
 
 const CTASection = ({ 
   title = "LET'S SECURE WHAT MATTERS MOST.",
@@ -20,18 +19,18 @@ const CTASection = ({
           <p className="cta-banner-desc">{subtitle}</p>
 
           <div className="cta-btn-group">
-            <Link to={ROUTES.GET_QUOTE} className="btn btn-primary btn-lg">
+            <Link to="/get-a-quote" className="btn btn-primary btn-lg">
               <span>REQUEST A FREE QUOTE</span>
               <ArrowRight size={18} />
             </Link>
-            <Link to={ROUTES.CONTACT} className="btn btn-secondary btn-lg">
+            <Link to="/contact" className="btn btn-secondary btn-lg">
               <span>CONTACT OUR TEAM</span>
             </Link>
           </div>
 
           {showPhone && (
             <div style={{ marginTop: '2rem', fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
-              Official Contact Line:{' '}
+              Official Contact Line: {' '}
               <a href={companyConfig.phoneNumbers.primaryTel} style={{ color: 'var(--color-text-primary)', fontWeight: 'bold' }}>
                 {companyConfig.phoneNumbers.primary}
               </a>

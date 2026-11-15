@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle, RotateCcw, Info } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 
@@ -15,13 +15,6 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
 
   const validate = () => {
     const errs = {};
@@ -61,7 +54,7 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
-    timerRef.current = setTimeout(() => {
+    setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
     }, 1000);

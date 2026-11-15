@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
+  ShieldCheck, 
   ArrowRight, 
   UserCheck, 
   FileCheck, 
   Clock, 
   Award,
-  CheckCircle2, 
-  ChevronRight, 
-  Eye, 
-  ChevronLeft 
+  CheckCircle2,
+  ChevronRight,
+  Shield,
+  Layers,
+  PhoneCall,
+  MapPin,
+  Eye,
+  ChevronLeft,
+  Building2,
+  Lock,
+  Truck,
+  Activity,
+  DoorClosed,
+  Factory
 } from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 import { 
@@ -17,14 +28,16 @@ import {
   guardPersonnelCategories, 
   processSteps, 
   sampleTestimonials, 
-  galleryItems 
+  galleryItems,
+  coverageRegions 
 } from '../data/siteData';
+import ServiceCard from '../components/ServiceCard';
 import IndustryCard from '../components/IndustryCard';
+import FAQ from '../components/FAQ';
 import EditorialFAQ from '../components/EditorialFAQ';
 import Lightbox from '../components/Lightbox';
 import CustomerReviewsSlider from '../components/CustomerReviewsSlider';
 import DynamicIcon from '../components/DynamicIcon';
-import SEO from '../components/common/SEO';
 import { assetPath } from '../utils/assetPath';
 import '../styles/editorialLayouts.css';
 import '../styles/processTimeline.css';
@@ -49,10 +62,6 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <SEO 
-        title={`${companyConfig.brandName} | Professional Security & Manpower Services`}
-        description="Operated by Sonagni Security Services Private Limited in Varanasi, UP. Delivering disciplined warehouse protection, construction guarding, access control, and premises security."
-      />
       {/* SECTION 1: FULL-WIDTH CINEMATIC VIDEO HERO */}
       <section className="hero-cinematic-section">
         {/* Full-width Video Background */}
@@ -310,7 +319,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: 'clamp(1.75rem, 3vw, 2.25rem)' }}>
             <Link to="/services" className="btn btn-outline-red btn-lg">
               <span>EXPLORE ALL SERVICES & PROTOCOLS</span>
               <ArrowRight size={16} />
@@ -336,7 +345,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <div style={{ textAlign: 'center', marginTop: 'clamp(1.75rem, 3vw, 2.25rem)' }}>
             <Link to="/services" className="btn btn-primary">
               <span>EXPLORE ALL SECURITY SERVICES</span>
               <ArrowRight size={16} />
@@ -413,7 +422,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: 'clamp(1.75rem, 3vw, 2.25rem)' }}>
             <Link to="/our-guards" className="btn btn-primary">
               <span>EXPLORE GUARD STANDARDS & VETTING</span>
               <ArrowRight size={16} />
@@ -565,7 +574,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <div style={{ textAlign: 'center', marginTop: 'clamp(1.75rem, 3vw, 2.25rem)' }}>
             <Link to="/our-guards" className="btn btn-outline-red">
               <span>EXPLORE TRAINED GUARDS & BOUNCERS</span>
               <ArrowRight size={16} />

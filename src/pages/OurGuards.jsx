@@ -1,6 +1,18 @@
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  ShieldCheck, 
+  Award, 
+  CheckCircle2, 
+  ArrowRight,
+  UserCheck,
+  FileCheck,
+  Activity,
+  HeartHandshake,
+  MapPin
+} from 'lucide-react';
 import { guardPersonnelCategories } from '../data/siteData';
+import { companyConfig } from '../data/companyInfo';
 import CTASection from '../components/CTASection';
 import PremiumPageHero from '../components/PremiumPageHero';
 import '../styles/editorialLayouts.css';

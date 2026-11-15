@@ -25,11 +25,11 @@ const EditorialFAQ = ({ faqs = [] }) => {
     const qLower = item.question.toLowerCase();
     const aLower = item.answer.toLowerCase();
 
-    if (qLower.includes('quotation') || qLower.includes('quote') || qLower.includes('hire') || qLower.includes('cost') || aLower.includes('quote') || aLower.includes('quotation')) {
+    if (qLower.includes('quotation') || qLower.includes('quote') || qLower.includes('hire') || qLower.includes('cost')) {
       category = 'QUOTATION & HIRING';
-    } else if (qLower.includes('personnel') || qLower.includes('guard') || qLower.includes('qualification') || qLower.includes('bouncer') || aLower.includes('guard')) {
+    } else if (qLower.includes('personnel') || qLower.includes('guard') || qLower.includes('qualification') || qLower.includes('bouncer')) {
       category = 'GUARD FORCES & DEPLOYMENT';
-    } else if (qLower.includes('service') || qLower.includes('property') || qLower.includes('warehouse') || qLower.includes('event') || aLower.includes('service')) {
+    } else if (qLower.includes('service') || qLower.includes('property') || qLower.includes('warehouse') || qLower.includes('event')) {
       category = 'SERVICES & COVERAGE';
     }
     return { ...item, originalIndex: idx, category };

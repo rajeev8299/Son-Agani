@@ -5,14 +5,14 @@ import {
   Quote, 
   ShieldCheck, 
   Building2, 
-  Lock, 
-  Sparkles 
+  Calendar,
+  Lock,
+  PlusCircle,
+  Sparkles
 } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import AdminTestimonialsModal from '../components/AdminTestimonialsModal';
-import SEO from '../components/common/SEO';
 import { testimonialService } from '../services/testimonialService';
-import { companyConfig } from '../data/companyInfo';
 import '../styles/testimonials.css';
 
 const Testimonials = () => {
@@ -21,44 +21,24 @@ const Testimonials = () => {
   const [loading, setLoading] = useState(true);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  useEffect(() => {
-    let isCurrent = true;
-    const fetchData = async () => {
-      try {
-        const [publicItems, adminItems] = await Promise.all([
-          testimonialService.getPublished(),
-          testimonialService.getAllForAdmin()
-        ]);
-        if (isCurrent) {
-          setPublishedTestimonials(publicItems || []);
-          setAllTestimonials(adminItems || []);
-        }
-      } catch (err) {
-        console.error('Failed to load testimonials:', err);
-      } finally {
-        if (isCurrent) setLoading(false);
-      }
-    };
-
-    fetchData();
-    return () => { isCurrent = false; };
-  }, []);
-
-  const reloadData = async () => {
+  // Load testimonials
+  const loadData = async () => {
     try {
       setLoading(true);
-      const [publicItems, adminItems] = await Promise.all([
-        testimonialService.getPublished(),
-        testimonialService.getAllForAdmin()
-      ]);
-      setPublishedTestimonials(publicItems || []);
-      setAllTestimonials(adminItems || []);
+      const publicItems = await testimonialService.getPublished();
+      const adminItems = await testimonialService.getAllForAdmin();
+      setPublishedTestimonials(publicItems);
+      setAllTestimonials(adminItems);
     } catch (err) {
-      console.error('Failed to reload testimonials:', err);
+      console.error('Failed to load testimonials:', err);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   // Admin Actions
   const handleSaveTestimonial = async (itemData) => {
@@ -68,27 +48,25 @@ const Testimonials = () => {
       } else {
         await testimonialService.create(itemData);
       }
-      await reloadData();
+      await loadData();
     } catch (err) {
       alert('Error saving testimonial: ' + err.message);
     }
   };
 
   const handleDeleteTestimonial = async (id) => {
-    if (window.confirm('Are you sure you want to delete this testimonial?')) {
-      try {
-        await testimonialService.delete(id);
-        await reloadData();
-      } catch (err) {
-        alert('Error deleting testimonial: ' + err.message);
-      }
+    try {
+      await testimonialService.delete(id);
+      await loadData();
+    } catch (err) {
+      alert('Error deleting testimonial: ' + err.message);
     }
   };
 
   const handleTogglePublish = async (id, currentStatus) => {
     try {
       await testimonialService.togglePublish(id, currentStatus);
-      await reloadData();
+      await loadData();
     } catch (err) {
       alert('Error updating status: ' + err.message);
     }
@@ -97,7 +75,7 @@ const Testimonials = () => {
   const handleToggleVerified = async (id, currentStatus) => {
     try {
       await testimonialService.toggleVerified(id, currentStatus);
-      await reloadData();
+      await loadData();
     } catch (err) {
       alert('Error updating verified state: ' + err.message);
     }
@@ -105,10 +83,6 @@ const Testimonials = () => {
 
   return (
     <div className="testimonials-page">
-      <SEO 
-        title={`Client Testimonials | ${companyConfig.brandName}`}
-        description="Authentic feedback and verified client perspectives regarding SON AGNI SECURITIES security deployments across warehouses, sites, and facilities."
-      />
       {/* 1. Page Hero using standardized PageHeader */}
       <PageHeader
         accentLabel="TRUST BUILT THROUGH PROFESSIONAL SECURITY SERVICES"
@@ -166,7 +140,7 @@ const Testimonials = () => {
             </p>
             <div>
               <span className="empty-state-pill">
-                <Building2 size={15} color="#C1121F" />
+                <Building2 size={15} color="var(--color-primary-red, #C8102E)" />
                 <span>SON AGNI SECURITIES • Authentic Verification Policy</span>
               </span>
             </div>

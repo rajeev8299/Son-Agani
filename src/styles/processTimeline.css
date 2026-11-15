@@ -10,14 +10,14 @@
 .process-timeline-section {
   position: relative;
   overflow: hidden;
-  padding: 5.5rem 0 6rem 0;
+  padding: clamp(3rem, 4.5vw, 4.25rem) 0;
 }
 
 /* Outer Timeline Wrapper */
 .process-timeline-wrap {
   position: relative;
   max-width: 1200px;
-  margin: 4.5rem auto 0 auto;
+  margin: clamp(2rem, 3.5vw, 3rem) auto 0 auto;
   padding: 1rem 0 2rem 0;
 }
 

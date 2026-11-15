@@ -1,8 +1,8 @@
 :root {
   /* Brand Primary Colors (Consistent Red Theme) */
-  --color-primary: #C1121F;
-  --color-primary-red: #C1121F;
-  --color-deep-red: #980F19;
+  --color-primary: #C8102E;
+  --color-primary-red: #C8102E;
+  --color-deep-red: #9B0D23;
   --color-bright-red: #E61E2E;
   
   /* Exact User Color Palette: Premium Warm Dark Off-White */
@@ -27,9 +27,9 @@
   --color-border-dark: #C9C4B7;
 
   /* Accent Tints */
-  --color-accent: #C1121F;
+  --color-accent: #C8102E;
   --color-accent-light-red: #F8E8E8;      /* Light Red Surface: #F8E8E8 */
-  --color-accent-red-border: rgba(193, 18, 31, 0.25);
+  --color-accent-red-border: rgba(200, 16, 46, 0.25);
 
   /* Legacy Mapping for Seamless Component Compatibility */
   --color-primary-black: var(--color-background);         /* #EAE7DC */

@@ -1,28 +1,26 @@
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { scrollToTop } from './utils/scroll';
 import { useScrollReveal } from './hooks/useScrollReveal';
-import { ROUTES } from './config/routes';
 
-// Layout & Common Components
+// Layout Components
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/common/ErrorBoundary';
-import LoadingFallback from './components/common/LoadingFallback';
 
-// Route-level code-splitting (Lazy Loading)
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Services = lazy(() => import('./pages/Services'));
-const ServiceDetails = lazy(() => import('./pages/ServiceDetails'));
-const OurGuards = lazy(() => import('./pages/OurGuards'));
-const Careers = lazy(() => import('./pages/Careers'));
-const Testimonials = lazy(() => import('./pages/Testimonials'));
-const Contact = lazy(() => import('./pages/Contact'));
-const GetQuote = lazy(() => import('./pages/GetQuote'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+// Pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import ServiceDetails from './pages/ServiceDetails';
+import OurGuards from './pages/OurGuards';
+import Careers from './pages/Careers';
+import Testimonials from './pages/Testimonials';
+import Contact from './pages/Contact';
+import GetQuote from './pages/GetQuote';
+import NotFound from './pages/NotFound';
 
-// Global Styles
+// Styles
 import './styles/variables.css';
 import './styles/global.css';
 import './styles/header.css';
@@ -54,20 +52,18 @@ function AppContent() {
         <Header />
         <main id="main-content" key={location.pathname} className="page-transition-wrapper">
           <ErrorBoundary>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route path={ROUTES.HOME} element={<Home />} />
-                <Route path={ROUTES.ABOUT} element={<About />} />
-                <Route path={ROUTES.SERVICES} element={<Services />} />
-                <Route path={ROUTES.SERVICE_DETAILS} element={<ServiceDetails />} />
-                <Route path={ROUTES.OUR_GUARDS} element={<OurGuards />} />
-                <Route path={ROUTES.CAREERS} element={<Careers />} />
-                <Route path={ROUTES.TESTIMONIALS} element={<Testimonials />} />
-                <Route path={ROUTES.CONTACT} element={<Contact />} />
-                <Route path={ROUTES.GET_QUOTE} element={<GetQuote />} />
-                <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
-              </Routes>
-            </Suspense>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:id" element={<ServiceDetails />} />
+              <Route path="/our-guards" element={<OurGuards />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/get-a-quote" element={<GetQuote />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </ErrorBoundary>
         </main>
         <Footer />

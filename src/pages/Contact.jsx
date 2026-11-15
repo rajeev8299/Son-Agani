@@ -1,18 +1,20 @@
 import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Building,
+  FileText
+} from 'lucide-react';
 import { companyConfig } from '../data/companyInfo';
 import ContactForm from '../components/ContactForm';
 import PremiumPageHero from '../components/PremiumPageHero';
-import SEO from '../components/common/SEO';
 import { WhatsAppBrandIcon } from '../components/icons/ContactIcons';
 
 const Contact = () => {
   return (
     <div className="contact-page">
-      <SEO 
-        title={`Contact ${companyConfig.brandName}`}
-        description={`Get in touch with ${companyConfig.legalName} in Varanasi, UP. Call ${companyConfig.phoneNumbers.primary} or send an enquiry.`}
-      />
       {/* 3D Cinematic Inner Page Hero */}
       <PremiumPageHero
         title="CONTACT OUR COMMAND TEAM"
@@ -32,12 +34,12 @@ const Contact = () => {
               <h2 style={{ fontSize: '1.85rem', textTransform: 'uppercase', marginBottom: '1.25rem', color: 'var(--color-text-primary)' }}>
                 COMPANY INFORMATION
               </h2>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '2rem' }}>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
                 Both public brand name and registered legal entity details are provided below for commercial verification.
               </p>
 
               {/* Legal identity details - Open & Borderless */}
-              <div style={{ marginBottom: '2.5rem' }}>
+              <div style={{ marginBottom: '1.75rem' }}>
                 <div style={{ marginBottom: '1.25rem' }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--color-primary-red)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800, display: 'block' }}>
                     PUBLIC BRAND NAME
@@ -108,7 +110,7 @@ const Contact = () => {
               </div>
 
               {/* WhatsApp direct CTA */}
-              <div style={{ marginTop: '2.5rem' }}>
+              <div style={{ marginTop: '1.75rem' }}>
                 <a 
                   href={companyConfig.whatsapp.url}
                   target="_blank"

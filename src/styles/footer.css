@@ -12,7 +12,7 @@
 }
 
 .footer-top {
-  padding: 4.5rem 0 3.25rem 0;
+  padding: clamp(3rem, 4.5vw, 3.75rem) 0 2.5rem 0;
   background-color: var(--color-background);
 }
 
@@ -62,21 +62,14 @@
   text-transform: uppercase;
   color: var(--color-text-primary);
   letter-spacing: 0.04em;
-  margin: 0 0 1.35rem 0;
-  padding-bottom: 0.65rem;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0;
   position: relative;
   line-height: 1.2;
 }
 
 .footer-heading::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 36px;
-  height: 2.5px;
-  background-color: var(--color-primary-red);
-  border-radius: 2px;
+  display: none;
 }
 
 /* ==========================================================================

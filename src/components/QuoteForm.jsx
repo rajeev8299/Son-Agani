@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Send, 
   CheckCircle, 
@@ -28,13 +28,6 @@ const QuoteForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
 
   const indianStates = [
     "Uttar Pradesh", "Delhi NCR", "Maharashtra", "Bihar", "Madhya Pradesh", 
@@ -87,7 +80,7 @@ const QuoteForm = () => {
     setErrors({});
 
     // Simulate client-side demo turnaround
-    timerRef.current = setTimeout(() => {
+    setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
     }, 1100);
